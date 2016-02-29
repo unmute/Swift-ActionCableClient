@@ -1,13 +1,18 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'ActionCableClient_Example', :exclusive => true do
+def common_pods
   pod 'ActionCableClient', :path => '../'
 end
 
-target 'ActionCableClient_Tests', :exclusive => true do
-  pod 'ActionCableClient', :path => '../'
+target 'ActionCableClient_Example' do
+    common_pods
+    pod 'SnapKit'
+    pod 'SwiftyJSON'
+end
 
-  pod 'Quick', '~> 0.8.0'
+target 'ActionCableClient_Tests' do
+  common_pods
+  pod 'Quick', '~> 0.9.1'
   pod 'Nimble', '3.0.0'
 end

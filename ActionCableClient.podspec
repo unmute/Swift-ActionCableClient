@@ -1,30 +1,16 @@
-#
-# Be sure to run `pod lib lint ActionCableClient.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "ActionCableClient"
   s.version          = "0.1.0"
-  s.summary          = "A short description of ActionCableClient."
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+  s.summary          = "A Swift client for the Rails ActionCable WebSocket server."
   s.description      = <<-DESC
+  ActionCable is a new WebSocket server being released with Rails 5 which makes it easy to add real-time features to your app. This Swift client makes it dead-simple to connect with that server, abstracting away everything except what you need to get going.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/ActionCableClient"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/danielrhodes/Swift-ActionCableClient"
   s.license          = 'MIT'
   s.author           = { "Daniel Rhodes" => "rhodes.daniel@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/ActionCableClient.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/danielrhodes/Swift-ActionCableClient.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/danielrhodes'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -34,7 +20,7 @@ Pod::Spec.new do |s|
     'ActionCableClient' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'Foundation'
+  s.dependency 'Starscream', '~> 1.1.2'
+  s.dependency 'SwiftyJSON', '~> 2.3.1'
 end
