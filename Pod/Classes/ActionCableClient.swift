@@ -355,13 +355,17 @@ extension ActionCableClient {
                 let message = try JSONSerializer.deserialize(text)
                 self.onMessage(message)
             } catch {
-                print(error)
+                print("[ActionCableClient] Error decoding message: \(error)")
             }
         })
     }
     
     private func onMessage(message: Message) {
             switch(message.messageType) {
+            case .Unrecognized:
+                break
+            case .Welcome:
+                break
             case .Ping:
                 if let callback = onPing {
                     dispatch_async(dispatch_get_main_queue(), callback)

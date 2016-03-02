@@ -67,74 +67,81 @@ internal class JSONSerializer {
     static func deserialize(string: String) throws -> Message {
         let JSONObj = JSON.parse(string)
         
-        var messageType : MessageType?
-        
         do {
             if let _ = JSONObj.error {
                 throw SerializationError.JSON
             }
             
-            guard let idString = JSONObj["identifier"].string
-                else { throw SerializationError.ProtocolViolation }
-            
-            // Is it a ping?
-            if idString == MessageType.Ping.string {
-                return Message(channelName: nil,
-                                actionName: nil,
-                               messageType: MessageType.Ping,
-                                      data: nil,
-                                     error: nil)
+            var messageType: MessageType = MessageType.Unrecognized
+            if let typeString = JSONObj["type"].string {
+                messageType = MessageType(string: typeString)
             }
             
-            let idJSON = JSON.parse(idString)
-            
-            guard let _ = idJSON.dictionary
-                else { throw SerializationError.ProtocolViolation }
-            
-            guard let channelName = idJSON["channel"].string
-                else { throw SerializationError.ProtocolViolation }
-            
-            if let messageTypeStr = JSONObj["type"].string {
-                switch(messageTypeStr) {
-                case MessageType.ConfirmSubscription.string:
-                    messageType = MessageType.ConfirmSubscription
-                case MessageType.RejectSubscription.string:
-                    messageType = MessageType.RejectSubscription
-                default:
-                    throw SerializationError.ProtocolViolation
-                }
+            var channelName: String?
+            if let idString = JSONObj["identifier"].string {
+                let idJSON = JSON.parse(idString)
+                guard let _ = idJSON.dictionary
+                    else { throw SerializationError.ProtocolViolation }
                 
-                return Message(channelName: channelName,
-                                actionName: nil,
-                               messageType: messageType!,
-                                      data: nil,
-                                     error: nil)
+                if let name = idJSON["channel"].string {
+                    channelName = name
+                }
             }
             
-            var messageActionName : String?
-            var messageValue      : AnyObject?
-            var messageError      : ErrorType?
-            
-            do {
-                if !JSONObj["message"].isExists() {
-                    throw SerializationError.ProtocolViolation
-                }
+            switch messageType {
+                // Subscriptions
+                case .ConfirmSubscription, .RejectSubscription, .CancelSubscription:
+                    guard let _ = channelName
+                        else { throw SerializationError.ProtocolViolation }
+                    
+                    return Message(channelName: channelName,
+                                   actionName:  nil,
+                                   messageType: messageType,
+                                   data: nil,
+                                   error: nil)
+
+                // Welcome/Ping messages
+                case .Welcome, .Ping:
+                    return Message(channelName: nil,
+                                   actionName: nil,
+                                   messageType: messageType,
+                                   data: nil,
+                                   error: nil)
                 
-                if let actionName = JSONObj["message"]["action"].string as String! {
-                    messageActionName = actionName
-                }
-                
-                messageValue = JSONObj["message"].object
-            } catch {
-                messageError = error
+                // Messages
+                // Note: Message is not actually a message type, so a real
+                // message will come through as Unrecognized.
+                case .Message, .Unrecognized:
+                    
+                    var messageActionName : String?
+                    var messageValue      : AnyObject?
+                    var messageError      : ErrorType?
+                    
+                    do {
+                        
+                        // No channel name was extracted from identifier
+                        guard let _ = channelName
+                            else { throw SerializationError.ProtocolViolation }
+                        
+                        if !JSONObj["message"].isExists() {
+                            throw SerializationError.ProtocolViolation
+                        }
+                        
+                        if let actionName = JSONObj["message"]["action"].string as String! {
+                            messageActionName = actionName
+                        }
+                        
+                        messageValue = JSONObj["message"].object
+                    } catch {
+                        messageError = error
+                    }
+                    
+                    return Message(channelName: channelName!,
+                        actionName: messageActionName,
+                        messageType: MessageType.Message,
+                        data: messageValue,
+                        error: messageError)
             }
-            
-            return Message(channelName: channelName,
-                            actionName: messageActionName,
-                           messageType: MessageType.Message,
-                                  data: messageValue,
-                                 error: messageError)
-            
         } catch {
             throw error
         }

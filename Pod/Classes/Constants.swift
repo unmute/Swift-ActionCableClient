@@ -45,15 +45,35 @@ internal enum MessageType {
     case CancelSubscription
     case Ping
     case Message
+    case Welcome
+    case Unrecognized
     
     var string: String {
         switch self {
-        case .ConfirmSubscription: return "confirm_subscription"
-        case .RejectSubscription: return "reject_subscription"
-        case .Ping: return "_ping"
-            
-        case .Message: return "_message" // STUB!
-        case .CancelSubscription: return "cancel_subscription" // STUB!
+            case .ConfirmSubscription: return "confirm_subscription"
+            case .RejectSubscription: return "reject_subscription"
+            case .Ping: return "ping"
+            case .Welcome: return "welcome"
+            case .Message: return "message" // STUB!
+            case .CancelSubscription: return "cancel_subscription" // STUB!
+            case .Unrecognized: return "___unrecognized"
+        }
+    }
+    
+    init(string: String) {
+        switch(string) {
+            case MessageType.Welcome.string:
+                self = MessageType.Welcome
+            case MessageType.Ping.string:
+                self = MessageType.Ping
+            case MessageType.ConfirmSubscription.string:
+                self = MessageType.ConfirmSubscription
+            case MessageType.RejectSubscription.string:
+                self = MessageType.RejectSubscription
+            case MessageType.CancelSubscription.string:
+                self = MessageType.CancelSubscription
+            default:
+                self = MessageType.Unrecognized
         }
     }
 }

@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ActionCableClient: 666e53b7ce33aed897e0de158d1ee0aad1b55372
+  ActionCableClient: e94a0783ff7b2d6b4493e21df6425c8f6f6b53ea
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Quick: a5221fc21788b6aeda934805e68b061839bc3165
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
