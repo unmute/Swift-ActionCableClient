@@ -78,7 +78,7 @@ internal class RetryHandler : NSObject {
     
     internal func fire(timer : NSTimer) {
         if let callback = self.callback {
-            dispatch_async(dispatch_get_main_queue(), callback)
+            callback()
         }
     }
     
