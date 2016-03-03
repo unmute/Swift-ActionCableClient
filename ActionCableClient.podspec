@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
+  s.source_files = 'Pod/Classes/**/*'
   s.frameworks = 'Foundation'
   s.dependency 'Starscream', '~> 1.1.2'
   s.dependency 'SwiftyJSON', '~> 2.3.1'
