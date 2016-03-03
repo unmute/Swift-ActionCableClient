@@ -15,6 +15,8 @@ it, simply add the following line to your Podfile:
 pod "ActionCableClient"
 ```
 
+*Note* If you are on edge Rails 5, use the `rails-5.0.0b4-compatibility` branch.
+
 ## Usage
 
 ### Get Started & Connect
