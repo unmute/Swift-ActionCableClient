@@ -32,7 +32,7 @@ public class ActionCableClient {
     ///
     /// If a disconnection occurs, reconnnectionStrategy determines and calculates
     /// the time interval at which a retry happens.
-    public var reconnectionStrategy : RetryStrategy = .LogarythmicBackoff(maxRetries: 5, maxIntervalTime: 30.0)
+    public var reconnectionStrategy : RetryStrategy = .LogarithmicBackoff(maxRetries: 5, maxIntervalTime: 30.0)
     
     //MARK: Global Callbacks
     
@@ -313,7 +313,7 @@ extension ActionCableClient {
             switch reconnectionStrategy {
                 
                 // We are going to need a retry handler (state machine) for these
-            case .Linear, .ExponentialBackoff, .LogarythmicBackoff:
+            case .Linear, .ExponentialBackoff, .LogarithmicBackoff:
                 
                 if reconnectionState == nil {
                     reconnectionState = RetryHandler(strategy: reconnectionStrategy)

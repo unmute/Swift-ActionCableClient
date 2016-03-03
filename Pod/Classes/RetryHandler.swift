@@ -25,13 +25,13 @@ import Foundation
 public enum RetryStrategy {
     
     case ExponentialBackoff(maxRetries: Int, maxIntervalTime: NSTimeInterval)
-    case LogarythmicBackoff(maxRetries: Int, maxIntervalTime: NSTimeInterval)
+    case LogarithmicBackoff(maxRetries: Int, maxIntervalTime: NSTimeInterval)
     case Linear(maxRetries: Int, intervalTime: Int)
     case None
     
     func calculateInterval(retries : Int) -> NSTimeInterval  {
         switch self {
-        case .LogarythmicBackoff(let maxRetries, let maxIntervalTime):
+        case .LogarithmicBackoff(let maxRetries, let maxIntervalTime):
             if (retries > maxRetries) { return 0 }
             let interval = 5 * log(Double(retries + 1))
             return NSTimeInterval(clamp(interval, lower: 0.0, upper: Double(maxIntervalTime)))
