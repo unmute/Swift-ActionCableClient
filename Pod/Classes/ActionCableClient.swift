@@ -97,20 +97,22 @@ public class ActionCableClient {
     }
     
     internal func reconnect() {
-        var shouldReconnect = true
-        if let callback = willReconnect {
-            dispatch_sync(dispatch_get_main_queue(), {
+        dispatch_async(dispatch_get_main_queue()) {
+            var shouldReconnect = true
+            if let callback = self.willReconnect {
                 shouldReconnect = callback()
-            })
+            }
+            
+            // Reconnection has been cancelled
+            if (!shouldReconnect) {
+                self.reconnectionState = nil
+                return
+            }
+            
+            dispatch_async(ActionCableConcurrentQueue) {
+                self.socket.connect()
+            }
         }
-        
-        // Reconnection has been cancelled
-        if (!shouldReconnect) {
-            reconnectionState = nil
-            return
-        }
-        
-        socket.connect()
     }
 
     internal func transmit(channel: Channel, command: Command, data: Dictionary<String, AnyObject>?) throws -> Bool {
