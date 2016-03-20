@@ -35,11 +35,29 @@ public class ActionCableClient {
     public var reconnectionStrategy : RetryStrategy = .LogarithmicBackoff(maxRetries: 5, maxIntervalTime: 30.0)
     
     //MARK: Global Callbacks
+    /// Will Connect
+    ///
+    /// Called when the client is about to connect
     public var willConnect: (() -> Void)?
+    /// On Connected
+    ///
+    /// Called when the client has connected
     public var onConnected: (() -> Void)?
+    /// On Disconnected
+    ///
+    /// Called when the client disconnected
     public var onDisconnected: ((ConnectionError?) -> Void)?
+    /// Will Reconnect
+    ///
+    /// Called when the client is about to reconnect
     public var willReconnect: (() -> Bool)?
+    /// On Rejected
+    ///
+    /// Called when the client has been rejected from connecting.
     public var onRejected: (() -> Void)?
+    /// On Ping
+    ///
+    /// Called when the server pings the client
     public var onPing: (() -> Void)?
     
     // MARK: Channel Callbacks
@@ -61,40 +79,39 @@ public class ActionCableClient {
         get { return socket.origin }
         set { socket.origin = newValue }
     }
-    
-    /*
-    Initialize an ActionCableClient.
-     
-    Each client represents one connection to the server.
-     
-    This client must be retained somewhere, such as on the app delegate.
-     
-    ```
-    let client = ActionCableClient(URL: NSURL(string: "ws://localhost:3000/cable")!)
-    ```
-    */
+  
+    /// Initialize an ActionCableClient.
+    ///
+    /// Each client represents one connection to the server.
+    ///
+    /// This client must be retained somewhere, such as on the app delegate.
+    ///
+    ///  ```swift
+    ///  let client = ActionCableClient(URL: NSURL(string: "ws://localhost:3000/cable")!)
+    ///  ```
     public required init(URL: NSURL) {
         /// Setup Initialize Socket
         socket = WebSocket(url: URL)
         setupWebSocket()
     }
     
-    /*
-    Connect with the server
-    */
+    /// Connect with the server
     public func connect() -> ActionCableClient {
-        if let callback = self.willConnect {
-          dispatch_async(dispatch_get_main_queue(), callback)
+        dispatch_async(dispatch_get_main_queue()) {
+          if let callback = self.willConnect {
+            callback()
+          }
+          
+          dispatch_async(ActionCableConcurrentQueue) {
+            self.socket.connect()
+            self.reconnectionState = nil
+          }
         }
-      
-        socket.connect()
-        reconnectionState = nil
+  
         return self
     }
-    
-    /*
-    Disconnect from the server.
-    */
+  
+    /// Disconnect from the server.
     public func disconnect() {
         manualDisconnectFlag = true
         socket.disconnect()
@@ -111,6 +128,10 @@ public class ActionCableClient {
             if (!shouldReconnect) {
                 self.reconnectionState = nil
                 return
+            }
+          
+            if let callback = self.willConnect {
+              callback()
             }
             
             dispatch_async(ActionCableConcurrentQueue) {
@@ -157,25 +178,28 @@ public class ActionCableClient {
     ///
     /// This flag tells us if we decided to manually disconnect
     /// or it happened upstream.
-    ///
-    private var manualDisconnectFlag : Bool = false
+    internal var manualDisconnectFlag : Bool = false
 }
 
 //MARK: Channel Creation
 extension ActionCableClient {
+    /// Create and subscribe to a channel.
+    ///
+    /// - Parameters:
+    ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. RoomChannel)
+    /// - Returns: a Channel
     public func create(name: String) -> Channel {
         let channel = create(name, identifier: nil, autoSubscribe: true, bufferActions: true)
         return channel
     }
     
-    /*
-    Create and subscribe to a channel.
-    - parameters name: The name of the channel. The name must match the class name on the server exactly. (e.g. RoomChannel)
-    - parameters identifier: An optional Dictionary with parameters to be passed into the Channel on each request
-    - parameters autoSubscribe: Whether to automatically subscribe to the channel. Defaults to true.
-    - returns: an ActionCableChannel object.
-    */
-    
+    /// Create and subscribe to a channel.
+    /// 
+    /// - Parameters:
+    ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. RoomChannel)
+    ///     - identifier: An optional Dictionary with parameters to be passed into the Channel on each request
+    ///     - autoSubscribe: Whether to automatically subscribe to the channel. Defaults to true.
+    /// - Returns: a Channel
     public func create(name: String, identifier: ChannelIdentifier?, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
         // Look in existing channels and return that
         if let channel = channels[name] {
@@ -206,7 +230,6 @@ extension ActionCableClient {
 }
 
 // MARK: Channel Subscriptions
-///Channel Subscriptions
 extension ActionCableClient {
     
     public func subscribed(name: String) -> Bool {
@@ -263,7 +286,6 @@ extension ActionCableClient {
 }
 
 // MARK: WebSocket Callbacks
-/// WebSocket
 extension ActionCableClient {
     
     private func setupWebSocket() {
@@ -313,12 +335,9 @@ extension ActionCableClient {
         // disconnect() has not been called and error is
         // worthy of attempting a reconnect.
         if (attemptReconnect) {
-            // what is our reconnection strategy?
             switch reconnectionStrategy {
-                
-                // We are going to need a retry handler (state machine) for these
+            // We are going to need a retry handler (state machine) for these
             case .Linear, .ExponentialBackoff, .LogarithmicBackoff:
-                
                 if reconnectionState == nil {
                     reconnectionState = RetryHandler(strategy: reconnectionStrategy)
                 }
@@ -328,8 +347,7 @@ extension ActionCableClient {
                 }
                 
                 return
-                
-                // if strategy is None, we don't want to reconnect
+            // if strategy is None, we don't want to reconnect
             case .None: break
             }
         }
@@ -428,7 +446,7 @@ extension ActionCableClient {
 
 extension ActionCableClient : CustomDebugStringConvertible {
     public var debugDescription : String {
-            return "ActionCable.Client(url: \"\(socket.currentURL)\" connected: \(socket.isConnected) id: \(unsafeAddressOf(self)))"
+            return "ActionCableClient(url: \"\(socket.currentURL)\" connected: \(socket.isConnected) id: \(unsafeAddressOf(self)))"
     }
 }
 

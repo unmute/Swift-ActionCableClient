@@ -87,27 +87,30 @@ class ChatViewController: UIViewController {
 extension ChatViewController {
     
     func setupClient() -> Void {
+      
+          self.client.willConnect = {
+              print("Will Connect")
+          }
+          
+          self.client.onConnected = {
+              print("Connected to \(self.client.URL)")
+          }
+          
+          self.client.onDisconnected = {(error: ErrorType?) in
+              print("Disconected with error: \(error)")
+          }
+          
+          self.client.willReconnect = {
+              print("Reconnecting to \(self.client.URL)")
+              return true
+          }
+          
+          self.channel = client.create(ChatViewController.ChannelIdentifier)
+          self.channel?.onSubscribed = {
+              print("Subscribed to \(ChatViewController.ChannelIdentifier)")
+          }
         
-        self.client.onConnected = {
-            print("Connected to \(self.client.URL)")
-        }
-        
-        self.client.onDisconnected = {(error: ErrorType?) in
-            print("Disconected with error: \(error)")
-        }
-        
-        self.client.willReconnect = {
-            print("Reconnecting to \(self.client.URL)")
-            return true
-        }
-        
-        self.channel = client.create(ChatViewController.ChannelIdentifier)
-        self.channel?.onSubscribed = {
-            print("Subscribed to \(ChatViewController.ChannelIdentifier)")
-        }
-        
-        self.channel?.onReceive = {(data:AnyObject?, error: ErrorType?) in
-            
+          self.channel?.onReceive = {(data:AnyObject?, error: ErrorType?) in
             if let _ = error {
                 print(error)
                 return
