@@ -84,14 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient/ActionCableClient.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient-iOS8.1/ActionCableClient.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/SnapKit/SnapKit.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Starscream/Starscream.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Starscream-iOS8.1/Starscream.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS8.1/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient/ActionCableClient.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient-iOS8.1/ActionCableClient.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/SnapKit/SnapKit.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Starscream/Starscream.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Starscream-iOS8.1/Starscream.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS8.1/SwiftyJSON.framework"
 fi

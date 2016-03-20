@@ -1,8 +1,8 @@
 {
   "name": "ActionCableClient",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "summary": "A Swift client for the Rails ActionCable WebSocket server.",
-  "description": "ActionCable is a new WebSockets server being released with Rails 5 which makes it easy to add real-time features to your app. This Swift client makes it dead-simple to connect with that server, abstracting away everything except what you need to get going.",
+  "description": "ActionCable is a new WebSocket server being released with Rails 5 which makes it easy to add real-time features to your app. This Swift client makes it dead-simple to connect with that server, abstracting away everything except what you need to get going.",
   "homepage": "https://github.com/danielrhodes/Swift-ActionCableClient",
   "license": "MIT",
   "authors": {
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/danielrhodes/Swift-ActionCableClient.git",
-    "tag": "0.1.0"
+    "tag": "0.1.3"
   },
   "social_media_url": "https://twitter.com/danielrhodes",
   "platforms": {
@@ -18,11 +18,6 @@
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "ActionCableClient": [
-      "Pod/Assets/*.png"
-    ]
-  },
   "frameworks": "Foundation",
   "dependencies": {
     "Starscream": [

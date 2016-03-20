@@ -43,19 +43,23 @@ public enum TransmitError : ErrorType {
 
 public enum ConnectionError : ErrorType {
     case NotFound(NSError)
+    case GoingAway(NSError)
     case Refused(NSError)
     case SSLHandshake(NSError)
     case UnknownDomain(NSError)
     case Closed(NSError)
+    case ProtocolViolation(NSError)
     case Unknown(NSError)
     case None
     
     var recoverable : Bool {
         switch self {
         case .NotFound: return false
+        case .GoingAway: return false
         case .Refused: return true
         case .SSLHandshake: return false
         case .UnknownDomain: return false
+        case .ProtocolViolation: return false
         case .Closed: return false
         case .Unknown: return true
         case .None: return false
@@ -68,9 +72,16 @@ public enum ConnectionError : ErrorType {
         case 61: return ConnectionError.Refused(error)
         case 404: return ConnectionError.NotFound(error)
         case 1000: return ConnectionError.Closed(error)
+        case 1002: return ConnectionError.ProtocolViolation(error)
+        case 1003: return ConnectionError.ProtocolViolation(error)
+        case 1005: return ConnectionError.Unknown(error)
+        case 1007: return ConnectionError.ProtocolViolation(error)
+        case 1008: return ConnectionError.ProtocolViolation(error)
+        case 1009: return ConnectionError.ProtocolViolation(error)
         case 9847: return ConnectionError.SSLHandshake(error)
         default:
             return ConnectionError.Unknown(error)
         }
     }
+
 }

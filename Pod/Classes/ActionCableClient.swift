@@ -35,7 +35,7 @@ public class ActionCableClient {
     public var reconnectionStrategy : RetryStrategy = .LogarithmicBackoff(maxRetries: 5, maxIntervalTime: 30.0)
     
     //MARK: Global Callbacks
-    
+    public var willConnect: (() -> Void)?
     public var onConnected: (() -> Void)?
     public var onDisconnected: ((ConnectionError?) -> Void)?
     public var willReconnect: (() -> Bool)?
@@ -83,6 +83,10 @@ public class ActionCableClient {
     Connect with the server
     */
     public func connect() -> ActionCableClient {
+        if let callback = self.willConnect {
+          dispatch_async(dispatch_get_main_queue(), callback)
+        }
+      
         socket.connect()
         reconnectionState = nil
         return self
@@ -263,11 +267,11 @@ extension ActionCableClient {
 extension ActionCableClient {
     
     private func setupWebSocket() {
-        self.socket.onConnect = { [weak self] in self!.didConnect() }
+        self.socket.onConnect    = { [weak self] in self!.didConnect() }
         self.socket.onDisconnect = { [weak self] (error: NSError?) in self!.didDisconnect(error) }
-        self.socket.onText = { [weak self] (text: String) in self!.onText(text) }
-        self.socket.onData = { [weak self] (data: NSData) in self!.onData(data) }
-        self.socket.onPong = { [weak self] in self!.didPong() }
+        self.socket.onText       = { [weak self] (text: String) in self!.onText(text) }
+        self.socket.onData       = { [weak self] (data: NSData) in self!.onData(data) }
+        self.socket.onPong       = { [weak self] in self!.didPong() }
     }
     
     private func didConnect() {

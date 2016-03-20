@@ -84,16 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient/ActionCableClient.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Starscream/Starscream.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient-iOS8.3/ActionCableClient.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Starscream-iOS8.3/Starscream.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS8.3/SwiftyJSON.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Nimble/Nimble.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Quick/Quick.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient/ActionCableClient.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Starscream/Starscream.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient-iOS8.3/ActionCableClient.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Starscream-iOS8.3/Starscream.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS8.3/SwiftyJSON.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Nimble/Nimble.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Quick/Quick.framework"
 fi

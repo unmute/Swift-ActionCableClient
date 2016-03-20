@@ -21,6 +21,7 @@
 //
 
 import Foundation
+import Accelerate
 
 internal let ActionCableSerialQueue = dispatch_queue_create("com.ActionCableClient.SerialQueue", DISPATCH_QUEUE_SERIAL);
 internal let ActionCableConcurrentQueue = dispatch_queue_create("com.ActionCableClient.Conccurent", DISPATCH_QUEUE_CONCURRENT)
@@ -77,6 +78,13 @@ internal struct Message {
 internal struct Action {
     var name : String
     var params: Dictionary<String, AnyObject>?
+}
+
+func exp2(x: [Double]) -> [Double] {
+  var results = [Double](count: x.count, repeatedValue: 0.0)
+  vvexp2(&results, x, [Int32(x.count)])
+  
+  return results
 }
 
 
