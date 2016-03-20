@@ -111,6 +111,8 @@ client.onPing = {
 
 ```
 
+For more documentation, see the [wiki](https://github.com/danielrhodes/Swift-ActionCableClient/wiki/Documentation)
+
 ## Requirements
 
 [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON): Used internally to ensure we are getting good responses from the server.

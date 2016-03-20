@@ -46,44 +46,39 @@ public class Channel {
         return client.subscribed(name)
     }
     
-    /*
-    A block called when a message has been received on this channel.
-    - parameter object: Depends on what is sent. Usually a Dictionary.
-    - parameter error: An error when decoding of the message failed.
- 
-    ```
-    channel.onReceive = {(JSON : AnyObject?, error: ErrorType?) in
-        print("Received:", JSON, "Error:", error)
-    }
-    ```
-    */
+    /// A block called when a message has been received on this channel.
+    ///
+    /// ```swift
+    /// channel.onReceive = {(JSON : AnyObject?, error: ErrorType?) in
+    ///   print("Received:", JSON, "Error:", error)
+    /// }
+    /// ```
+    ///
+    /// - Parameters:
+    ///     - object: Depends on what is sent. Usually a Dictionary.
+    ///     - error: An error when decoding of the message failed.
+    ///
     public var onReceive: ((AnyObject?, ErrorType?) -> Void)?
-    
-    /*
-    A block called when the channel has been successfully subscribed.
- 
-    Note: This block will be called if the client disconnects and then
-    reconnects again.
- 
-    ```
-    channel.onSubscribed = {
-        print("Yay!")
-    }
-    ```
-    */
+  
+    /// A block called when the channel has been successfully subscribed.
+    ///
+    /// Note: This block will be called if the client disconnects and then
+    /// reconnects again.
+    ///
+    /// ```swift
+    /// channel.onSubscribed = {
+    ///     print("Yay!")
+    /// }
+    /// ```
     public var onSubscribed: (() -> Void)?
     
-    /*
-    A block called when the channel was unsubscribed.
-
-    Note: This block is also called if the server disconnects.
-    */
+    /// A block called when the channel was unsubscribed.
+    ///
+    /// Note: This block is also called if the server disconnects.
     public var onUnsubscribed: (() -> Void)?
     
-    /*
-    A block called when a subscription attempt was rejected
-    by the server.
-    */
+    /// A block called when a subscription attempt was rejected
+    /// by the server.
     public var onRejected: (() -> Void)?
 
     
@@ -103,23 +98,21 @@ public class Channel {
         onReceiveActionHooks[action] = handler
     }
     
-    /*
-    Subscript for `action:`.
- 
-    Send an action to the server.
- 
-    Note: ActionCable does not give any confirmation or response that an
-    action was succcessfully executed or received.
- 
-    - parameter action: The name of the action (e.g. speak)
-    - throws: `TransmitError` if there any issues encoding the parameters or sending the action.
-    - returns: `true` if the action was sent.
-     
-    ```
-    channel['speak'](["message": "Hello, World!"])
-     
-    ```
-    */
+    /// Subscript for `action:`.
+    ///
+    /// Send an action to the server.
+    ///
+    /// Note: ActionCable does not give any confirmation or response that an
+    /// action was succcessfully executed or received.
+    ///
+    /// ```swift
+    /// channel['speak'](["message": "Hello, World!"])
+    /// ```
+    ///
+    /// - Parameters:
+    ///     - action: The name of the action (e.g. speak)
+    /// - Returns: `true` if the action was sent.
+
     public subscript(name: String) -> (Dictionary<String, AnyObject>) -> ErrorType? {
         
         func executeParams(params : Dictionary<String, AnyObject>?) -> ErrorType?  {
@@ -129,26 +122,23 @@ public class Channel {
         return executeParams
     }
     
-    /*
-       Send an action to the server.
-     
-       Note: ActionCable does not give any confirmation or response that an 
-       action was succcessfully executed.
-     
-       - parameter action: The name of the action (e.g. speak)
-       - parameter params: A `Dictionary` of JSON encodable values.
-         
-       - throws: `TransmitError` if there any issues encoding the parameters or sending the action.
-         
-       - returns: `true` if the action was sent.
-         
-     
-       ```
-       channel.action("speak", ["message": "Hello, World!"])
-     
-       ```
-    */
-    
+    /// Send an action.
+    ///
+    /// Note: ActionCable does not give any confirmation or response that an
+    /// action was succcessfully executed.
+    ///
+    /// ```swift
+    /// channel.action("speak", ["message": "Hello, World!"])
+    /// ```
+    ///
+    /// - Parameters:
+    ///     - action: The name of the action (e.g. speak)
+    ///     - params: A `Dictionary` of JSON encodable values.
+    ///
+    ///
+    /// - Returns: A `TransmitError` if there were any issues sending the
+    ///             message.
+
     public func action(name: String, params: [String: AnyObject]? = nil) -> ErrorType? {
         do {
             try (client.action(self, action: name, data: params))
@@ -168,29 +158,24 @@ public class Channel {
         return nil
     }
     
-    /*
-    Subscribe to the channel on the server.
-
-    This should be unnecessary if autoSubscribe is `true`.
-
-    ```
-    channel.subscribe()
-    ```
-    */
-    
+    /// Subscribe to the channel on the server.
+    ///
+    /// This should be unnecessary if autoSubscribe is `true`.
+    ///
+    /// ```swift
+    /// channel.subscribe()
+    /// ```
     public func subscribe() {
         client.subscribe(self)
     }
     
-    /*
-     Unsubscribe from the channel on the server.
-     
-     Upon unsubscribing, ActionCableClient will stop retaining this object.
-     
-     ```
-     channel.unsubscribe()
-     ```
-     */
+    /// Unsubscribe from the channel on the server.
+    ///
+    /// Upon unsubscribing, ActionCableClient will stop retaining this object.
+    ///
+    /// ```swift
+    /// channel.unsubscribe()
+    /// ```
     public func unsubscribe() {
         client.unsubscribe(self)
     }
