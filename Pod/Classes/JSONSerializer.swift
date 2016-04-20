@@ -116,7 +116,7 @@ internal class JSONSerializer {
             var messageError      : ErrorType?
             
             do {
-                if !JSONObj["message"].isExists() {
+                if !JSONObj["message"].exists() {
                     throw SerializationError.ProtocolViolation
                 }
                 
