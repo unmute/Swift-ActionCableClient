@@ -63,10 +63,12 @@ internal class RetryHandler : NSObject {
         
         // Save callback
         self.callback = callback
-        
+      
         if let aTimer = self.timer { aTimer.invalidate() }
-        
+      
+        // Calculate interval based on strategy
         let interval: NSTimeInterval = self.strategy.calculateInterval(self.retries)
+
         if (interval > 0.0) {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(interval,
                 target: self,
