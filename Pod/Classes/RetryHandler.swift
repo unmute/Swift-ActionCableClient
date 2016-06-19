@@ -59,7 +59,7 @@ internal class RetryHandler : NSObject {
     }
     
     func retry(callback: ((Void) -> (Void)))  {
-        self.retries++
+        self.retries += 1
         
         // Save callback
         self.callback = callback
@@ -70,7 +70,7 @@ internal class RetryHandler : NSObject {
         if (interval > 0.0) {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(interval,
                 target: self,
-                selector: "fire:",
+                selector: #selector("fire:"),
                 userInfo: nil,
                 repeats: false)
         }
