@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -84,14 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient-iOS8.1/ActionCableClient.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SnapKit/SnapKit.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Starscream-iOS8.1/Starscream.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS8.1/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ActionCableClient-iOS8.1/ActionCableClient.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Starscream-iOS8.1/Starscream.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ActionCableClient-iOS8.1/ActionCableClient.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SnapKit/SnapKit.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Starscream-iOS8.1/Starscream.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS8.1/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ActionCableClient-iOS8.1/ActionCableClient.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Starscream-iOS8.1/Starscream.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi

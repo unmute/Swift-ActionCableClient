@@ -7,8 +7,8 @@ end
 
 target 'ActionCableClient_Example' do
     common_pods
-    pod 'SnapKit'
     pod 'SwiftyJSON'
+    pod 'SnapKit'
 end
 
 target 'ActionCableClient_Tests' do

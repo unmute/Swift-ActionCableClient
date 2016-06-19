@@ -31,7 +31,7 @@ class ChatViewController: UIViewController {
     static var ChannelIdentifier = "ChatChannel"
     static var ChannelAction = "talk"
     
-    let client = ActionCableClient(URL: NSURL(string:"wss://actioncable-echo.untzuntz.net/cable")!)
+    let client = ActionCableClient(URL: NSURL(string:"ws://localhost:3000/cable")!)
     var channel: Channel?
     
     var history: Array<ChatMessage> = Array()

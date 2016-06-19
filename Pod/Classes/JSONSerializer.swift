@@ -21,10 +21,11 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 internal class JSONSerializer {
-    
+
+    static let nonStandardMessageTypes: [MessageType] = [.Ping, .Welcome]
+  
     static func serialize(channel : Channel, command: Command, data: Dictionary<String, AnyObject>?) throws -> String {
         
         do {
@@ -65,29 +66,42 @@ internal class JSONSerializer {
     }
     
     static func deserialize(string: String) throws -> Message {
-        let JSONObj = JSON.parse(string)
-        
+      
         do {
-            if let _ = JSONObj.error {
-                throw SerializationError.JSON
-            }
+            guard let JSONData = string.dataUsingEncoding(NSUTF8StringEncoding) else { throw SerializationError.JSON }
+
+            let JSONObj = try NSJSONSerialization.JSONObjectWithData(JSONData, options: .AllowFragments)
             
-            var messageType: MessageType = MessageType.Unrecognized
-            if let typeString = JSONObj["type"].string {
-                messageType = MessageType(string: typeString)
+            var messageType: MessageType = .Unrecognized
+            if let typeObj = JSONObj["type"], let typeString = typeObj as? String {
+              messageType = MessageType(string: typeString)
             }
-            
+          
             var channelName: String?
-            if let idString = JSONObj["identifier"].string {
-                let idJSON = JSON.parse(idString)
-                guard let _ = idJSON.dictionary
-                    else { throw SerializationError.ProtocolViolation }
-                
-                if let name = idJSON["channel"].string {
+            if !nonStandardMessageTypes.contains(messageType) {
+              if let idObj = JSONObj["identifier"] {
+                  var idJSON: Dictionary<String, AnyObject>
+                  if let idString = idObj as? String {
+                      guard let JSONIdentifierData = idString.dataUsingEncoding(NSUTF8StringEncoding)
+                        else { throw SerializationError.JSON }
+                    
+                      if let JSON = try NSJSONSerialization.JSONObjectWithData(JSONIdentifierData, options: .AllowFragments) as? Dictionary<String, AnyObject> {
+                          idJSON = JSON
+                      } else {
+                          throw SerializationError.JSON
+                      }
+                  } else if let idJSONObj = idObj as? Dictionary<String, AnyObject> {
+                      idJSON = idJSONObj
+                  } else {
+                      throw SerializationError.ProtocolViolation
+                  }
+                  
+                  if let nameStr = idJSON["channel"], let name = nameStr as? String {
                     channelName = name
-                }
+                  }
+              }
             }
-            
+          
             switch messageType {
                 // Subscriptions
                 case .ConfirmSubscription, .RejectSubscription, .CancelSubscription:
@@ -122,16 +136,16 @@ internal class JSONSerializer {
                         // No channel name was extracted from identifier
                         guard let _ = channelName
                             else { throw SerializationError.ProtocolViolation }
-                        
-                        if !JSONObj["message"].isExists() {
-                            throw SerializationError.ProtocolViolation
+                      
+                        // No message was extracted from identifier
+                        guard let objVal = JSONObj["message"], let messageObj = objVal
+                          else { throw SerializationError.ProtocolViolation }
+                      
+                        if let actionObj = messageObj["action"], let actionStr = actionObj as? String {
+                          messageActionName = actionStr
                         }
                         
-                        if let actionName = JSONObj["message"]["action"].string as String! {
-                            messageActionName = actionName
-                        }
-                        
-                        messageValue = JSONObj["message"].object
+                        messageValue = messageObj
                     } catch {
                         messageError = error
                     }
