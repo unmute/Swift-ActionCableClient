@@ -101,6 +101,7 @@ internal class JSONSerializer {
                   }
               }
             }
+<<<<<<< HEAD
           
             switch messageType {
                 // Subscriptions
@@ -121,6 +122,21 @@ internal class JSONSerializer {
                                    messageType: messageType,
                                    data: nil,
                                    error: nil)
+=======
+            
+            var messageActionName : String?
+            var messageValue      : AnyObject?
+            var messageError      : ErrorType?
+            
+            do {
+                if !JSONObj["message"].exists() {
+                    throw SerializationError.ProtocolViolation
+                }
+                
+                if let actionName = JSONObj["message"]["action"].string as String! {
+                    messageActionName = actionName
+                }
+>>>>>>> ca25e65813217fc5554e51d781f181253f4d80db
                 
                 // Messages
                 // Note: Message is not actually a message type, so a real
