@@ -34,11 +34,11 @@ public enum RetryStrategy {
     case .LogarithmicBackoff(let maxRetries, let maxIntervalTime):
       if (retries > maxRetries) { return 0.0 }
       let interval = 5 * log(Double(retries))
-      return NSTimeInterval(clamp(interval, lower: 0.0, upper: Double(maxIntervalTime)))
+      return NSTimeInterval(clamp(interval, lower: 0.1, upper: Double(maxIntervalTime)))
     case .ExponentialBackoff(let maxRetries, let maxIntervalTime):
       if (retries > maxRetries) { return 0.0 }
       let interval = exp2(Double(retries))
-      return NSTimeInterval(clamp(Double(interval), lower: 0.0, upper: Double(maxIntervalTime)))
+      return NSTimeInterval(clamp(Double(interval), lower: 0.1, upper: Double(maxIntervalTime)))
     case .Linear(let maxRetries, let intervalTime):
       if (retries > maxRetries) { return 0.0 }
       return NSTimeInterval(intervalTime)
@@ -72,13 +72,14 @@ internal class RetryHandler : NSObject {
         if (interval > 0.0) {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(interval,
                 target: self,
-                selector: #selector(RetryHandler.fire(_:)),
+                selector: #selector(self.fire(_:)),
                 userInfo: nil,
                 repeats: false)
         }
     }
     
     internal func fire(timer : NSTimer) {
+      
         if let callback = self.callback {
             callback()
         }
