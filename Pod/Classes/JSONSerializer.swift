@@ -102,7 +102,7 @@ internal class JSONSerializer {
           
             switch messageType {
             // Subscriptions
-            case .ConfirmSubscription, .RejectSubscription, .CancelSubscription:
+            case .ConfirmSubscription, .RejectSubscription, .CancelSubscription, .HibernateSubscription:
                 guard let _ = channelName
                   else { throw SerializationError.ProtocolViolation }
                 

@@ -319,7 +319,7 @@ extension ActionCableClient {
         
         let channels = self.channels
         for (_, channel) in channels {
-            let message = Message(channelName: channel.name, actionName: nil, messageType: MessageType.CancelSubscription, data: nil, error: nil)
+            let message = Message(channelName: channel.name, actionName: nil, messageType: MessageType.HibernateSubscription, data: nil, error: nil)
             onMessage(message)
         }
         
@@ -394,7 +394,6 @@ extension ActionCableClient {
                 if let callback = onPing {
                     dispatch_async(dispatch_get_main_queue(), callback)
                 }
-                break
             case .Message:
                 if let channel = channels[message.channelName!] {
                     // Notify Channel
@@ -404,7 +403,6 @@ extension ActionCableClient {
                         dispatch_async(dispatch_get_main_queue(), { callback(channel, message.data, message.error) } )
                     }
                 }
-                break
             case .ConfirmSubscription:
                 if let channel = unconfirmedChannels.removeValueForKey(message.channelName!) {
                     self.channels.updateValue(channel, forKey: channel.name)
@@ -416,7 +414,6 @@ extension ActionCableClient {
                         dispatch_async(dispatch_get_main_queue(), { callback(channel) })
                     }
                 }
-                break
             case .RejectSubscription:
                 // Remove this channel from the list of unconfirmed subscriptions
                 if let channel = unconfirmedChannels.removeValueForKey(message.channelName!) {
@@ -428,7 +425,14 @@ extension ActionCableClient {
                         dispatch_async(dispatch_get_main_queue(), { callback(channel) })
                     }
                 }
-                break
+            case .HibernateSubscription:
+              if let channel = channels.removeValueForKey(message.channelName!) {
+                // Add channel into unconfirmed channels
+                unconfirmedChannels[channel.name] = channel
+                
+                // We want to treat this like an unsubscribe.
+                fallthrough
+              }
             case .CancelSubscription:
                 if let channel = channels.removeValueForKey(message.channelName!) {
                     
@@ -439,7 +443,6 @@ extension ActionCableClient {
                         dispatch_async(dispatch_get_main_queue(), { callback(channel) })
                     }
                 }
-                break
             }
     }
     

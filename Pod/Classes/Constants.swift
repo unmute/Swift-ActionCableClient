@@ -44,6 +44,7 @@ internal enum MessageType {
     case ConfirmSubscription
     case RejectSubscription
     case CancelSubscription
+    case HibernateSubscription
     case Ping
     case Message
     case Welcome
@@ -57,6 +58,7 @@ internal enum MessageType {
             case .Welcome: return "welcome"
             case .Message: return "message" // STUB!
             case .CancelSubscription: return "cancel_subscription" // STUB!
+            case .HibernateSubscription: return "hibernate_subscription" //STUB!
             case .Unrecognized: return "___unrecognized"
         }
     }
@@ -73,6 +75,8 @@ internal enum MessageType {
                 self = MessageType.RejectSubscription
             case MessageType.CancelSubscription.string:
                 self = MessageType.CancelSubscription
+            case MessageType.HibernateSubscription.string:
+                self = MessageType.HibernateSubscription
             default:
                 self = MessageType.Unrecognized
         }

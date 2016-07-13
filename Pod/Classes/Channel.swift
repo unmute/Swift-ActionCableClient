@@ -196,25 +196,22 @@ extension Channel {
                 if let actionName = message.actionName, let callback = self.onReceiveActionHooks[actionName] {
                     dispatch_async(dispatch_get_main_queue(), { callback(message.data, message.error) })
                 }
-                break
             case .ConfirmSubscription:
                 if let callback = self.onSubscribed {
                     dispatch_async(dispatch_get_main_queue(), callback)
                 }
                 
                 self.flushBuffer()
-                
-                break
             case .RejectSubscription:
                 if let callback = self.onRejected {
                     dispatch_async(dispatch_get_main_queue(), callback)
                 }
-                break
+            case .HibernateSubscription:
+              fallthrough
             case .CancelSubscription:
                 if let callback = self.onUnsubscribed {
                     dispatch_async(dispatch_get_main_queue(), callback)
                 }
-                break
             default: break
         }
     }
