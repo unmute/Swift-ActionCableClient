@@ -26,7 +26,7 @@ public typealias ChannelIdentifier = Dictionary<String, AnyObject>
 public typealias OnReceiveClosure = ((AnyObject?, ErrorType?) -> (Void))
 
 /// A particular channel on the server.
-public class Channel {
+public class Channel: Hashable, Equatable {
     
     /// Name of the channel
     public var name : String
@@ -81,7 +81,6 @@ public class Channel {
     /// by the server.
     public var onRejected: (() -> Void)?
 
-    
     internal init(name: String, identifier: ChannelIdentifier?, client: ActionCableClient, autoSubscribe: Bool=true, shouldBufferActions: Bool=true) {
         self.name = name
         self.client = client
@@ -183,6 +182,11 @@ public class Channel {
     internal var onReceiveActionHooks: Dictionary<String, OnReceiveClosure> = Dictionary()
     internal unowned var client: ActionCableClient
     internal var actionBuffer: Array<Action> = Array()
+    public let hashValue: Int = random()
+}
+
+public func ==(lhs: Channel, rhs: Channel) -> Bool {
+  return (lhs.hashValue == rhs.hashValue) && (lhs.name == rhs.name)
 }
 
 extension Channel {
@@ -240,7 +244,7 @@ extension Channel {
 
 extension Channel: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return "ActionCable.Channel(name: \"\(self.name)\" subscribed: \(self.subscribed))"
+        return "ActionCable.Channel<\(hashValue)>(name: \"\(self.name)\" subscribed: \(self.subscribed))"
     }
 }
 

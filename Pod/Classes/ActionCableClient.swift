@@ -114,7 +114,7 @@ public class ActionCableClient {
     /// Disconnect from the server.
     public func disconnect() {
         manualDisconnectFlag = true
-        socket.disconnect()
+        socket.disconnect(forceTimeout: 0)
     }
     
     internal func reconnect() {
@@ -188,6 +188,7 @@ extension ActionCableClient {
     /// - Parameters:
     ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. RoomChannel)
     /// - Returns: a Channel
+    @warn_unused_result(message="You must hold on to the Channel returned from a create(_:)")
     public func create(name: String) -> Channel {
         let channel = create(name, identifier: nil, autoSubscribe: true, bufferActions: true)
         return channel
@@ -200,6 +201,7 @@ extension ActionCableClient {
     ///     - identifier: An optional Dictionary with parameters to be passed into the Channel on each request
     ///     - autoSubscribe: Whether to automatically subscribe to the channel. Defaults to true.
     /// - Returns: a Channel
+    @warn_unused_result(message="You must hold on to the Channel returned from a create(_:)")
     public func create(name: String, identifier: ChannelIdentifier?, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
         // Look in existing channels and return that
         if let channel = channels[name] {
@@ -237,11 +239,13 @@ extension ActionCableClient {
     }
     
     internal func subscribe(channel: Channel) {
-        // Is it already added
-        if let _ = channels[channel.name] { return }
-        // Bail if state is bad
-        guard let _ = unconfirmedChannels[channel.name] else { return }
-        
+        // Is it already added and subscribed?
+        if let existingChannel = channels[channel.name] where (existingChannel == channel) && (existingChannel.subscribed) {
+          return
+        }
+      
+        unconfirmedChannels.updateValue(channel, forKey: channel.name)
+      
         do {
             try self.transmit(channel, command: Command.Subscribe, data: nil)
         } catch {
@@ -250,9 +254,6 @@ extension ActionCableClient {
     }
     
     internal func unsubscribe(channel: Channel) {
-        // Is it already added
-        guard let _ = channels[channel.name] else { return }
-        
         do {
             try self.transmit(channel, command: Command.Unsubscribe, data: nil)
             
