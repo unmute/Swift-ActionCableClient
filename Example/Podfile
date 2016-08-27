@@ -5,14 +5,26 @@ def common_pods
   pod 'ActionCableClient', :path => '../'
 end
 
-target 'ActionCableClient_Example' do
+target 'ActionCableClient-Example-iOS' do
     common_pods
     pod 'SwiftyJSON'
     pod 'SnapKit'
 end
 
-target 'ActionCableClient_Tests' do
-  common_pods
-  pod 'Quick', '~> 0.9.1'
-  pod 'Nimble', '3.0.0'
+target 'ActionCableClient-Example-tvOS' do
+    common_pods
+end
+
+target 'ActionCableClient-Tests-iOS' do
+    common_pods
+    pod 'Quick', '~> 0.9.3'
+    pod 'Nimble', '3.2.0'
+    pod 'SwiftyJSON'
+end
+
+target 'ActionCableClient-Tests-tvOS' do
+    common_pods
+    pod 'Quick', '~> 0.9.3'
+    pod 'Nimble', '3.2.0'
+    pod 'SwiftyJSON'
 end

@@ -26,6 +26,6 @@ struct TestConfiguration {
     static var EchoChannel = "EchoChannel"
     static var EchoChannelAction = "echo"
     static var RejectChannel = "RejectChannel"
-    static var GoodURL: NSURL = NSURL(string:"wss://actioncable-echo.untzuntz.net/cable")!
-    static var BadURL: NSURL = NSURL(string: "wss://blhasf/cable")!
+    static var GoodURL: NSURL = NSURL(string:"ws://actioncable-echo.herokuapp.com/cable")!
+    static var BadURL: NSURL = NSURL(string: "ws://blhasf/cable")!
 }

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1464AC8EB784117E130B4275 /* Pods_ActionCableClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2671492A20465630DC58B5DD /* Pods_ActionCableClient_Tests.framework */; };
+		0F53EED84A1F7DBD349B9BFE /* Pods_ActionCableClient_Tests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483C8C0B5CDF9D66B4761728 /* Pods_ActionCableClient_Tests_tvOS.framework */; };
+		37722CDFF6731FB64631772C /* Pods_ActionCableClient_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA163B9C5DEC3ED7BFEC1401 /* Pods_ActionCableClient_Example_iOS.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -16,8 +17,15 @@
 		864E71D41C82033F00EEEEA2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864E71D31C82033F00EEEEA2 /* ChatViewController.swift */; };
 		864E71D91C835E2500EEEEA2 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864E71D81C835E2500EEEEA2 /* ChatView.swift */; };
 		86611AC81C8108F400EAAA60 /* ActionCableChannelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86611AC41C8108E300EAAA60 /* ActionCableChannelTest.swift */; };
+		8695DB081D723C8B0072CB81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695DB071D723C8B0072CB81 /* AppDelegate.swift */; };
+		8695DB0A1D723C8B0072CB81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695DB091D723C8B0072CB81 /* ViewController.swift */; };
+		8695DB0D1D723C8B0072CB81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8695DB0B1D723C8B0072CB81 /* Main.storyboard */; };
+		8695DB0F1D723C8B0072CB81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8695DB0E1D723C8B0072CB81 /* Assets.xcassets */; };
+		8695DB1B1D7242D70072CB81 /* ActionCableClient_Tests_tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695DB1A1D7242D70072CB81 /* ActionCableClient_Tests_tvOS.swift */; };
 		86C2E4681C80EAC1008BD677 /* ActionCableClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8629C0441C80A728008902DD /* ActionCableClientTest.swift */; };
 		8A234798BE7755FEDD3C1606 /* Pods_ActionCableClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7692BB454A146711AA00325 /* Pods_ActionCableClient_Example.framework */; };
+		D0A7BBDF2E70F9C59F76E9DD /* Pods_ActionCableClient_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E82A92C02FE84860E30EBC /* Pods_ActionCableClient_Example_tvOS.framework */; };
+		F872B9EDC19D94A3F5DBEC3E /* Pods_ActionCableClient_Tests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A404759ECA91AC45893A76B7 /* Pods_ActionCableClient_Tests_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,21 +36,37 @@
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = ActionCableClient;
 		};
+		8695DB1D1D7242D70072CB81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8695DB041D723C8B0072CB81;
+			remoteInfo = "ActionCableClient-Example-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C58D83C1D57277F2F6B0520 /* Pods-ActionCableClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient_Tests/Pods-ActionCableClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		245FA471A4BF0C19ECA48769 /* Pods-ActionCableClient-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Example-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Example-iOS/Pods-ActionCableClient-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		2671492A20465630DC58B5DD /* Pods_ActionCableClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionCableClient_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2764632BF46EC73F9248BCB3 /* Pods-ActionCableClient-Example-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Example-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Example-tvOS/Pods-ActionCableClient-Example-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		483C8C0B5CDF9D66B4761728 /* Pods_ActionCableClient_Tests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionCableClient_Tests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C024575255D34C4FEDF42B5 /* Pods-ActionCableClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient_Example/Pods-ActionCableClient_Example.release.xcconfig"; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* ActionCableClient_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionCableClient_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E82A92C02FE84860E30EBC /* Pods_ActionCableClient_Example_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionCableClient_Example_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6008A91A88F736F6B841237E /* Pods-ActionCableClient-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Example-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Example-iOS/Pods-ActionCableClient-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		607FACD01AFB9204008FA782 /* ActionCableClient-Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ActionCableClient-Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* ActionCableClient_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionCableClient_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* ActionCableClient-Tests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ActionCableClient-Tests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		626FB000272B9BCC0C9EA5D8 /* Pods-ActionCableClient-Example-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Example-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Example-tvOS/Pods-ActionCableClient-Example-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		6CD3BC7B60F6D34A1230610A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6DAA62A5C80CA6033B3FD26F /* Pods-ActionCableClient-Tests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Tests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Tests-iOS/Pods-ActionCableClient-Tests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		73B5BE18A63E3477562BFA8D /* Pods-ActionCableClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient_Example/Pods-ActionCableClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		752161E6EA8D3DFC3F4EB1AA /* Pods-ActionCableClient-Tests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Tests-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Tests-tvOS/Pods-ActionCableClient-Tests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		80FCCB8F3DB82D25FAB3C2D3 /* Pods-ActionCableClient-Tests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Tests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Tests-iOS/Pods-ActionCableClient-Tests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		8143C85504BA3FE893F0977E /* Pods-ActionCableClient_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient_Tests/Pods-ActionCableClient_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8629C0441C80A728008902DD /* ActionCableClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCableClientTest.swift; sourceTree = "<group>"; };
 		8632E7881C83992500C3D3A6 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
@@ -50,9 +74,21 @@
 		864E71D31C82033F00EEEEA2 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		864E71D81C835E2500EEEEA2 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		86611AC41C8108E300EAAA60 /* ActionCableChannelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCableChannelTest.swift; sourceTree = "<group>"; };
+		8695DB051D723C8B0072CB81 /* ActionCableClient-Example-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ActionCableClient-Example-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8695DB071D723C8B0072CB81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8695DB091D723C8B0072CB81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8695DB0C1D723C8B0072CB81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8695DB0E1D723C8B0072CB81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8695DB101D723C8B0072CB81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8695DB181D7242D70072CB81 /* ActionCableClient-Tests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ActionCableClient-Tests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8695DB1A1D7242D70072CB81 /* ActionCableClient_Tests_tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCableClient_Tests_tvOS.swift; sourceTree = "<group>"; };
+		8695DB1C1D7242D70072CB81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A404759ECA91AC45893A76B7 /* Pods_ActionCableClient_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionCableClient_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA472BA2E49D747DA582A039 /* ActionCableClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ActionCableClient.podspec; path = ../ActionCableClient.podspec; sourceTree = "<group>"; };
+		B9C700FFADA8D54D0B5B77DD /* Pods-ActionCableClient-Tests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionCableClient-Tests-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionCableClient-Tests-tvOS/Pods-ActionCableClient-Tests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CD2728EF5CA52D40C1D7D3E9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D7692BB454A146711AA00325 /* Pods_ActionCableClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionCableClient_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA163B9C5DEC3ED7BFEC1401 /* Pods_ActionCableClient_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionCableClient_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A234798BE7755FEDD3C1606 /* Pods_ActionCableClient_Example.framework in Frameworks */,
+				37722CDFF6731FB64631772C /* Pods_ActionCableClient_Example_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +105,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1464AC8EB784117E130B4275 /* Pods_ActionCableClient_Tests.framework in Frameworks */,
+				F872B9EDC19D94A3F5DBEC3E /* Pods_ActionCableClient_Tests_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8695DB021D723C8B0072CB81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A7BBDF2E70F9C59F76E9DD /* Pods_ActionCableClient_Example_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8695DB151D7242D70072CB81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F53EED84A1F7DBD349B9BFE /* Pods_ActionCableClient_Tests_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +135,14 @@
 				4C024575255D34C4FEDF42B5 /* Pods-ActionCableClient_Example.release.xcconfig */,
 				8143C85504BA3FE893F0977E /* Pods-ActionCableClient_Tests.debug.xcconfig */,
 				0C58D83C1D57277F2F6B0520 /* Pods-ActionCableClient_Tests.release.xcconfig */,
+				6008A91A88F736F6B841237E /* Pods-ActionCableClient-Example-iOS.debug.xcconfig */,
+				245FA471A4BF0C19ECA48769 /* Pods-ActionCableClient-Example-iOS.release.xcconfig */,
+				2764632BF46EC73F9248BCB3 /* Pods-ActionCableClient-Example-tvOS.debug.xcconfig */,
+				626FB000272B9BCC0C9EA5D8 /* Pods-ActionCableClient-Example-tvOS.release.xcconfig */,
+				6DAA62A5C80CA6033B3FD26F /* Pods-ActionCableClient-Tests-iOS.debug.xcconfig */,
+				80FCCB8F3DB82D25FAB3C2D3 /* Pods-ActionCableClient-Tests-iOS.release.xcconfig */,
+				752161E6EA8D3DFC3F4EB1AA /* Pods-ActionCableClient-Tests-tvOS.debug.xcconfig */,
+				B9C700FFADA8D54D0B5B77DD /* Pods-ActionCableClient-Tests-tvOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -90,8 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for ActionCableClient */,
+				607FACD21AFB9204008FA782 /* ActionCableClient-Example-iOS */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				8695DB061D723C8B0072CB81 /* ActionCableClient-Example-tvOS */,
+				8695DB191D7242D70072CB81 /* ActionCableClient-Tests-tvOS */,
 				607FACD11AFB9204008FA782 /* Products */,
 				439452F1C624A6AB538DB901 /* Pods */,
 				EA67DB082F4E1D669E9A68DF /* Frameworks */,
@@ -101,13 +164,15 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* ActionCableClient_Example.app */,
-				607FACE51AFB9204008FA782 /* ActionCableClient_Tests.xctest */,
+				607FACD01AFB9204008FA782 /* ActionCableClient-Example-iOS.app */,
+				607FACE51AFB9204008FA782 /* ActionCableClient-Tests-iOS.xctest */,
+				8695DB051D723C8B0072CB81 /* ActionCableClient-Example-tvOS.app */,
+				8695DB181D7242D70072CB81 /* ActionCableClient-Tests-tvOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for ActionCableClient */ = {
+		607FACD21AFB9204008FA782 /* ActionCableClient-Example-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -116,7 +181,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
-			name = "Example for ActionCableClient";
+			name = "ActionCableClient-Example-iOS";
 			path = ActionCableClient;
 			sourceTree = "<group>";
 		};
@@ -167,11 +232,36 @@
 			name = Chat;
 			sourceTree = "<group>";
 		};
+		8695DB061D723C8B0072CB81 /* ActionCableClient-Example-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				8695DB071D723C8B0072CB81 /* AppDelegate.swift */,
+				8695DB091D723C8B0072CB81 /* ViewController.swift */,
+				8695DB0B1D723C8B0072CB81 /* Main.storyboard */,
+				8695DB0E1D723C8B0072CB81 /* Assets.xcassets */,
+				8695DB101D723C8B0072CB81 /* Info.plist */,
+			);
+			path = "ActionCableClient-Example-tvOS";
+			sourceTree = "<group>";
+		};
+		8695DB191D7242D70072CB81 /* ActionCableClient-Tests-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				8695DB1A1D7242D70072CB81 /* ActionCableClient_Tests_tvOS.swift */,
+				8695DB1C1D7242D70072CB81 /* Info.plist */,
+			);
+			path = "ActionCableClient-Tests-tvOS";
+			sourceTree = "<group>";
+		};
 		EA67DB082F4E1D669E9A68DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D7692BB454A146711AA00325 /* Pods_ActionCableClient_Example.framework */,
 				2671492A20465630DC58B5DD /* Pods_ActionCableClient_Tests.framework */,
+				EA163B9C5DEC3ED7BFEC1401 /* Pods_ActionCableClient_Example_iOS.framework */,
+				55E82A92C02FE84860E30EBC /* Pods_ActionCableClient_Example_tvOS.framework */,
+				A404759ECA91AC45893A76B7 /* Pods_ActionCableClient_Tests_iOS.framework */,
+				483C8C0B5CDF9D66B4761728 /* Pods_ActionCableClient_Tests_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,9 +269,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* ActionCableClient_Example */ = {
+		607FACCF1AFB9204008FA782 /* ActionCableClient-Example-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient-Example-iOS" */;
 			buildPhases = (
 				E3F49D59840FB86D1226F556 /* 📦 Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
@@ -194,14 +284,14 @@
 			);
 			dependencies = (
 			);
-			name = ActionCableClient_Example;
+			name = "ActionCableClient-Example-iOS";
 			productName = ActionCableClient;
-			productReference = 607FACD01AFB9204008FA782 /* ActionCableClient_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* ActionCableClient-Example-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* ActionCableClient_Tests */ = {
+		607FACE41AFB9204008FA782 /* ActionCableClient-Tests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient-Tests-iOS" */;
 			buildPhases = (
 				A2556001B9C192D6AC0F35E0 /* 📦 Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
@@ -215,9 +305,50 @@
 			dependencies = (
 				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
 			);
-			name = ActionCableClient_Tests;
+			name = "ActionCableClient-Tests-iOS";
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* ActionCableClient_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* ActionCableClient-Tests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8695DB041D723C8B0072CB81 /* ActionCableClient-Example-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8695DB111D723C8B0072CB81 /* Build configuration list for PBXNativeTarget "ActionCableClient-Example-tvOS" */;
+			buildPhases = (
+				2DFAD00C38405DD3AF9234BA /* 📦 Check Pods Manifest.lock */,
+				8695DB011D723C8B0072CB81 /* Sources */,
+				8695DB021D723C8B0072CB81 /* Frameworks */,
+				8695DB031D723C8B0072CB81 /* Resources */,
+				C5A1D0E05BC4D56062E435B5 /* 📦 Embed Pods Frameworks */,
+				EAAE5DF5C5750F06C1150C85 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ActionCableClient-Example-tvOS";
+			productName = "ActionCableClient-Example-tvOS";
+			productReference = 8695DB051D723C8B0072CB81 /* ActionCableClient-Example-tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8695DB171D7242D70072CB81 /* ActionCableClient-Tests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8695DB1F1D7242D70072CB81 /* Build configuration list for PBXNativeTarget "ActionCableClient-Tests-tvOS" */;
+			buildPhases = (
+				AF0ED8FCA735F0E7153ADE0C /* 📦 Check Pods Manifest.lock */,
+				8695DB141D7242D70072CB81 /* Sources */,
+				8695DB151D7242D70072CB81 /* Frameworks */,
+				8695DB161D7242D70072CB81 /* Resources */,
+				DD5A4A826BCCFE9C4C9AC117 /* 📦 Embed Pods Frameworks */,
+				E0E5918EB5B09745B260C8AF /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8695DB1E1D7242D70072CB81 /* PBXTargetDependency */,
+			);
+			name = "ActionCableClient-Tests-tvOS";
+			productName = "ActionCableClient-Tests-tvOS";
+			productReference = 8695DB181D7242D70072CB81 /* ActionCableClient-Tests-tvOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -226,7 +357,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Daniel Rhodes";
 				TargetAttributes = {
@@ -235,6 +366,14 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					8695DB041D723C8B0072CB81 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					8695DB171D7242D70072CB81 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 8695DB041D723C8B0072CB81;
 					};
 				};
 			};
@@ -251,8 +390,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* ActionCableClient_Example */,
-				607FACE41AFB9204008FA782 /* ActionCableClient_Tests */,
+				607FACCF1AFB9204008FA782 /* ActionCableClient-Example-iOS */,
+				607FACE41AFB9204008FA782 /* ActionCableClient-Tests-iOS */,
+				8695DB041D723C8B0072CB81 /* ActionCableClient-Example-tvOS */,
+				8695DB171D7242D70072CB81 /* ActionCableClient-Tests-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -274,9 +415,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8695DB031D723C8B0072CB81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8695DB0F1D723C8B0072CB81 /* Assets.xcassets in Resources */,
+				8695DB0D1D723C8B0072CB81 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8695DB161D7242D70072CB81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2DFAD00C38405DD3AF9234BA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		5306E1C81C5B6171BF811856 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,7 +461,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient_Example/Pods-ActionCableClient_Example-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Example-iOS/Pods-ActionCableClient-Example-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7D43D70BBEEC59A69B311E21 /* 📦 Copy Pods Resources */ = {
@@ -304,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient_Tests/Pods-ActionCableClient_Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-iOS/Pods-ActionCableClient-Tests-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9FB0F4043C6849CD5C1D98D6 /* 📦 Embed Pods Frameworks */ = {
@@ -319,10 +491,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient_Example/Pods-ActionCableClient_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Example-iOS/Pods-ActionCableClient-Example-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A2556001B9C192D6AC0F35E0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF0ED8FCA735F0E7153ADE0C /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -349,7 +536,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient_Tests/Pods-ActionCableClient_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-iOS/Pods-ActionCableClient-Tests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5A1D0E05BC4D56062E435B5 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Example-tvOS/Pods-ActionCableClient-Example-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD5A4A826BCCFE9C4C9AC117 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-tvOS/Pods-ActionCableClient-Tests-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0E5918EB5B09745B260C8AF /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-tvOS/Pods-ActionCableClient-Tests-tvOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E3F49D59840FB86D1226F556 /* 📦 Check Pods Manifest.lock */ = {
@@ -365,6 +597,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EAAE5DF5C5750F06C1150C85 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Example-tvOS/Pods-ActionCableClient-Example-tvOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -391,13 +638,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8695DB011D723C8B0072CB81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8695DB0A1D723C8B0072CB81 /* ViewController.swift in Sources */,
+				8695DB081D723C8B0072CB81 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8695DB141D7242D70072CB81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8695DB1B1D7242D70072CB81 /* ActionCableClient_Tests_tvOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* ActionCableClient_Example */;
+			target = 607FACCF1AFB9204008FA782 /* ActionCableClient-Example-iOS */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+		8695DB1E1D7242D70072CB81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8695DB041D723C8B0072CB81 /* ActionCableClient-Example-tvOS */;
+			targetProxy = 8695DB1D1D7242D70072CB81 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -408,6 +677,14 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8695DB0B1D723C8B0072CB81 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8695DB0C1D723C8B0072CB81 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -451,7 +728,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -490,7 +767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -499,12 +776,12 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73B5BE18A63E3477562BFA8D /* Pods-ActionCableClient_Example.debug.xcconfig */;
+			baseConfigurationReference = 6008A91A88F736F6B841237E /* Pods-ActionCableClient-Example-iOS.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ActionCableClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.danielrhodes.ActionCableClient-Example";
@@ -514,12 +791,12 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C024575255D34C4FEDF42B5 /* Pods-ActionCableClient_Example.release.xcconfig */;
+			baseConfigurationReference = 245FA471A4BF0C19ECA48769 /* Pods-ActionCableClient-Example-iOS.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ActionCableClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.danielrhodes.ActionCableClient-Example";
@@ -529,8 +806,9 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8143C85504BA3FE893F0977E /* Pods-ActionCableClient_Tests.debug.xcconfig */;
+			baseConfigurationReference = 6DAA62A5C80CA6033B3FD26F /* Pods-ActionCableClient-Tests-iOS.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -543,13 +821,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCableClient-Example-iOS.app/ActionCableClient-Example-iOS";
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C58D83C1D57277F2F6B0520 /* Pods-ActionCableClient_Tests.release.xcconfig */;
+			baseConfigurationReference = 80FCCB8F3DB82D25FAB3C2D3 /* Pods-ActionCableClient-Tests-iOS.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -558,6 +838,75 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCableClient-Example-iOS.app/ActionCableClient-Example-iOS";
+			};
+			name = Release;
+		};
+		8695DB121D723C8B0072CB81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2764632BF46EC73F9248BCB3 /* Pods-ActionCableClient-Example-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "ActionCableClient-Example-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Example-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		8695DB131D723C8B0072CB81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 626FB000272B9BCC0C9EA5D8 /* Pods-ActionCableClient-Example-tvOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = "ActionCableClient-Example-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Example-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		8695DB201D7242D70072CB81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 752161E6EA8D3DFC3F4EB1AA /* Pods-ActionCableClient-Tests-tvOS.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "ActionCableClient-Tests-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Tests-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCableClient-Example-tvOS.app/ActionCableClient-Example-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		8695DB211D7242D70072CB81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9C700FFADA8D54D0B5B77DD /* Pods-ActionCableClient-Tests-tvOS.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = "ActionCableClient-Tests-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Tests-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCableClient-Example-tvOS.app/ActionCableClient-Example-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Release;
 		};
@@ -573,7 +922,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient-Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
@@ -582,11 +931,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient-Tests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8695DB111D723C8B0072CB81 /* Build configuration list for PBXNativeTarget "ActionCableClient-Example-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8695DB121D723C8B0072CB81 /* Debug */,
+				8695DB131D723C8B0072CB81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8695DB1F1D7242D70072CB81 /* Build configuration list for PBXNativeTarget "ActionCableClient-Tests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8695DB201D7242D70072CB81 /* Debug */,
+				8695DB211D7242D70072CB81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
