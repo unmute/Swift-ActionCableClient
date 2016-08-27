@@ -204,14 +204,10 @@ extension ActionCableClient {
     @warn_unused_result(message="You must hold on to the Channel returned from a create(_:)")
     public func create(name: String, identifier: ChannelIdentifier?, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
         // Look in existing channels and return that
-        if let channel = channels[name] {
-            return channel
-        }
+        if let channel = channels[name] { return channel }
         
         // Look in unconfirmed channels and return that
-        if let channel = unconfirmedChannels[name] {
-            return channel
-        }
+        if let channel = unconfirmedChannels[name] { return channel }
         
         // Otherwise create a new one
         let channel = Channel(name: name,
@@ -219,8 +215,12 @@ extension ActionCableClient {
             client: self,
             autoSubscribe: autoSubscribe,
             shouldBufferActions: bufferActions)
-        
+      
         self.unconfirmedChannels[name] = channel
+      
+        if (channel.autoSubscribe) {
+          subscribe(channel)
+        }
         
         return channel
     }
@@ -240,11 +240,12 @@ extension ActionCableClient {
     
     internal func subscribe(channel: Channel) {
         // Is it already added and subscribed?
-        if let existingChannel = channels[channel.name] where (existingChannel == channel) && (existingChannel.subscribed) {
+        if let existingChannel = channels[channel.name] where (existingChannel == channel) {
           return
         }
       
-        unconfirmedChannels.updateValue(channel, forKey: channel.name)
+        guard let channel = unconfirmedChannels[channel.name]
+          else { debugPrint("[ActionCableClient] Internal inconsistency error!"); return }
       
         do {
             try self.transmit(channel, command: Command.Subscribe, data: nil)

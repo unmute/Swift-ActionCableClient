@@ -87,10 +87,6 @@ public class Channel: Hashable, Equatable {
         self.autoSubscribe = autoSubscribe
         self.shouldBufferActions = shouldBufferActions
         self.identifier = identifier
-        
-        if (self.autoSubscribe) {
-            subscribe()
-        }
     }
     
     public func onReceive(action:String, handler: (OnReceiveClosure)) -> Void {
