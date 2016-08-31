@@ -11,7 +11,7 @@ import ActionCableClient
 
 class ViewController: UIViewController {
   
-  let client = ActionCableClient(URL: NSURL(string:"ws://actioncable-echo.herokuapp.com/cable")!)
+  let client = ActionCableClient(URL: URL(string:"ws://actioncable-echo.herokuapp.com/cable")!)
   var channel: Channel?
 
   override func viewDidLoad() {

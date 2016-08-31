@@ -37,13 +37,13 @@ class ChatCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        textView.frame = CGRectZero
-        textView.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        textView.frame = CGRect.zero
+        textView.lineBreakMode = NSLineBreakMode.byWordWrapping
         textView.numberOfLines = 0
         
         self.addSubview(textView)
         
-        self.layoutMargins = UIEdgeInsetsZero
+        self.layoutMargins = UIEdgeInsets.zero
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +52,6 @@ class ChatCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        textView.frame = CGRectInset(self.bounds, ChatCell.Inset, ChatCell.Inset)
+        textView.frame = self.bounds.insetBy(dx: ChatCell.Inset, dy: ChatCell.Inset)
     }
 }

@@ -189,7 +189,7 @@ class ActionCableChannelTest : QuickSpec {
                 let params = ["hello":"world"]
                 
                 var actionReceiveResponse : AnyObject?
-                var actionReceiveError: ErrorType?
+                var actionReceiveError: Swift.Error?
                 
                 beforeEach {
                     client = ActionCableClient(URL: TestConfiguration.GoodURL)
@@ -199,7 +199,7 @@ class ActionCableChannelTest : QuickSpec {
                     }
                     
                     waitUntil(timeout: 3.0) { (done) -> Void in
-                        channel!.onReceive(TestConfiguration.EchoChannelAction) {(obj: AnyObject?, error: ErrorType?) in
+                        channel!.onReceive(TestConfiguration.EchoChannelAction) {(obj: AnyObject?, error: Swift.Error?) in
                             actionReceiveResponse = obj
                             actionReceiveError = error
                         }

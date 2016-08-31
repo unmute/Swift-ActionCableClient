@@ -23,7 +23,6 @@
 		8695DB0F1D723C8B0072CB81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8695DB0E1D723C8B0072CB81 /* Assets.xcassets */; };
 		8695DB1B1D7242D70072CB81 /* ActionCableClient_Tests_tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695DB1A1D7242D70072CB81 /* ActionCableClient_Tests_tvOS.swift */; };
 		86C2E4681C80EAC1008BD677 /* ActionCableClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8629C0441C80A728008902DD /* ActionCableClientTest.swift */; };
-		8A234798BE7755FEDD3C1606 /* Pods_ActionCableClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7692BB454A146711AA00325 /* Pods_ActionCableClient_Example.framework */; };
 		D0A7BBDF2E70F9C59F76E9DD /* Pods_ActionCableClient_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E82A92C02FE84860E30EBC /* Pods_ActionCableClient_Example_tvOS.framework */; };
 		F872B9EDC19D94A3F5DBEC3E /* Pods_ActionCableClient_Tests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A404759ECA91AC45893A76B7 /* Pods_ActionCableClient_Tests_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -96,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A234798BE7755FEDD3C1606 /* Pods_ActionCableClient_Example.framework in Frameworks */,
 				37722CDFF6731FB64631772C /* Pods_ActionCableClient_Example_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,12 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient-Example-iOS" */;
 			buildPhases = (
-				E3F49D59840FB86D1226F556 /* 📦 Check Pods Manifest.lock */,
+				E3F49D59840FB86D1226F556 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				9FB0F4043C6849CD5C1D98D6 /* 📦 Embed Pods Frameworks */,
-				5306E1C81C5B6171BF811856 /* 📦 Copy Pods Resources */,
+				9FB0F4043C6849CD5C1D98D6 /* [CP] Embed Pods Frameworks */,
+				5306E1C81C5B6171BF811856 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -293,12 +291,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ActionCableClient-Tests-iOS" */;
 			buildPhases = (
-				A2556001B9C192D6AC0F35E0 /* 📦 Check Pods Manifest.lock */,
+				A2556001B9C192D6AC0F35E0 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				B68F73EC9605C3A62789FF59 /* 📦 Embed Pods Frameworks */,
-				7D43D70BBEEC59A69B311E21 /* 📦 Copy Pods Resources */,
+				B68F73EC9605C3A62789FF59 /* [CP] Embed Pods Frameworks */,
+				7D43D70BBEEC59A69B311E21 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,12 +312,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8695DB111D723C8B0072CB81 /* Build configuration list for PBXNativeTarget "ActionCableClient-Example-tvOS" */;
 			buildPhases = (
-				2DFAD00C38405DD3AF9234BA /* 📦 Check Pods Manifest.lock */,
+				2DFAD00C38405DD3AF9234BA /* [CP] Check Pods Manifest.lock */,
 				8695DB011D723C8B0072CB81 /* Sources */,
 				8695DB021D723C8B0072CB81 /* Frameworks */,
 				8695DB031D723C8B0072CB81 /* Resources */,
-				C5A1D0E05BC4D56062E435B5 /* 📦 Embed Pods Frameworks */,
-				EAAE5DF5C5750F06C1150C85 /* 📦 Copy Pods Resources */,
+				C5A1D0E05BC4D56062E435B5 /* [CP] Embed Pods Frameworks */,
+				EAAE5DF5C5750F06C1150C85 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -334,12 +332,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8695DB1F1D7242D70072CB81 /* Build configuration list for PBXNativeTarget "ActionCableClient-Tests-tvOS" */;
 			buildPhases = (
-				AF0ED8FCA735F0E7153ADE0C /* 📦 Check Pods Manifest.lock */,
+				AF0ED8FCA735F0E7153ADE0C /* [CP] Check Pods Manifest.lock */,
 				8695DB141D7242D70072CB81 /* Sources */,
 				8695DB151D7242D70072CB81 /* Frameworks */,
 				8695DB161D7242D70072CB81 /* Resources */,
-				DD5A4A826BCCFE9C4C9AC117 /* 📦 Embed Pods Frameworks */,
-				E0E5918EB5B09745B260C8AF /* 📦 Copy Pods Resources */,
+				DD5A4A826BCCFE9C4C9AC117 /* [CP] Embed Pods Frameworks */,
+				E0E5918EB5B09745B260C8AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -358,11 +356,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Daniel Rhodes";
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -370,9 +369,11 @@
 					};
 					8695DB041D723C8B0072CB81 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					8695DB171D7242D70072CB81 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 8695DB041D723C8B0072CB81;
 					};
 				};
@@ -434,29 +435,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DFAD00C38405DD3AF9234BA /* 📦 Check Pods Manifest.lock */ = {
+		2DFAD00C38405DD3AF9234BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5306E1C81C5B6171BF811856 /* 📦 Copy Pods Resources */ = {
+		5306E1C81C5B6171BF811856 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,14 +465,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Example-iOS/Pods-ActionCableClient-Example-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D43D70BBEEC59A69B311E21 /* 📦 Copy Pods Resources */ = {
+		7D43D70BBEEC59A69B311E21 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,14 +480,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-iOS/Pods-ActionCableClient-Tests-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9FB0F4043C6849CD5C1D98D6 /* 📦 Embed Pods Frameworks */ = {
+		9FB0F4043C6849CD5C1D98D6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,44 +495,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Example-iOS/Pods-ActionCableClient-Example-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A2556001B9C192D6AC0F35E0 /* 📦 Check Pods Manifest.lock */ = {
+		A2556001B9C192D6AC0F35E0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		AF0ED8FCA735F0E7153ADE0C /* 📦 Check Pods Manifest.lock */ = {
+		AF0ED8FCA735F0E7153ADE0C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B68F73EC9605C3A62789FF59 /* 📦 Embed Pods Frameworks */ = {
+		B68F73EC9605C3A62789FF59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,14 +540,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-iOS/Pods-ActionCableClient-Tests-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5A1D0E05BC4D56062E435B5 /* 📦 Embed Pods Frameworks */ = {
+		C5A1D0E05BC4D56062E435B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,14 +555,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Example-tvOS/Pods-ActionCableClient-Example-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD5A4A826BCCFE9C4C9AC117 /* 📦 Embed Pods Frameworks */ = {
+		DD5A4A826BCCFE9C4C9AC117 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,14 +570,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-tvOS/Pods-ActionCableClient-Tests-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E0E5918EB5B09745B260C8AF /* 📦 Copy Pods Resources */ = {
+		E0E5918EB5B09745B260C8AF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,29 +585,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActionCableClient-Tests-tvOS/Pods-ActionCableClient-Tests-tvOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E3F49D59840FB86D1226F556 /* 📦 Check Pods Manifest.lock */ = {
+		E3F49D59840FB86D1226F556 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EAAE5DF5C5750F06C1150C85 /* 📦 Copy Pods Resources */ = {
+		EAAE5DF5C5750F06C1150C85 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,8 +705,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -728,7 +731,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -750,8 +753,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -767,9 +772,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -778,6 +784,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6008A91A88F736F6B841237E /* Pods-ActionCableClient-Example-iOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ActionCableClient/Info.plist;
@@ -786,6 +793,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.danielrhodes.ActionCableClient-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -793,6 +801,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 245FA471A4BF0C19ECA48769 /* Pods-ActionCableClient-Example-iOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ActionCableClient/Info.plist;
@@ -801,6 +810,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.danielrhodes.ActionCableClient-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -808,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6DAA62A5C80CA6033B3FD26F /* Pods-ActionCableClient-Tests-iOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -829,6 +840,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80FCCB8F3DB82D25FAB3C2D3 /* Pods-ActionCableClient-Tests-iOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -846,6 +858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2764632BF46EC73F9248BCB3 /* Pods-ActionCableClient-Example-tvOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -855,6 +868,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Example-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -864,6 +878,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 626FB000272B9BCC0C9EA5D8 /* Pods-ActionCableClient-Example-tvOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -872,6 +887,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Example-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -881,6 +897,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 752161E6EA8D3DFC3F4EB1AA /* Pods-ActionCableClient-Tests-tvOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -889,6 +906,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Tests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCableClient-Example-tvOS.app/ActionCableClient-Example-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -898,6 +916,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9C700FFADA8D54D0B5B77DD /* Pods-ActionCableClient-Tests-tvOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = "ActionCableClient-Tests-tvOS/Info.plist";
@@ -905,6 +924,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.ActionCableClient-Tests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActionCableClient-Example-tvOS.app/ActionCableClient-Example-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};

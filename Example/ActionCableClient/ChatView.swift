@@ -23,7 +23,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-
 class ChatView : UIView {
     
     var tableView: UITableView
@@ -36,25 +35,25 @@ class ChatView : UIView {
         
         super.init(frame: frame)
         
-        self.tableView.frame = CGRectZero
+        self.tableView.frame = CGRect.zero
         self.tableView.contentInset = UIEdgeInsetsMake(0, -5, 0, 0);
         self.addSubview(self.tableView)
         
-        self.textField.frame = CGRectZero
-        self.textField.borderStyle = UITextBorderStyle.Bezel
-        self.textField.returnKeyType = UIReturnKeyType.Send
+        self.textField.frame = CGRect.zero
+        self.textField.borderStyle = UITextBorderStyle.bezel
+        self.textField.returnKeyType = UIReturnKeyType.send
         self.textField.placeholder = "Say something..."
         self.addSubview(self.textField)
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatView.keyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatView.keyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -85,27 +84,27 @@ class ChatView : UIView {
 
 //MARK: Notifications
 extension ChatView {
-    func keyboardWillHideNotification(notification: NSNotification) {
-        let userInfo = notification.userInfo!
+    func keyboardWillHideNotification(_ notification: Notification) {
+        let userInfo = (notification as NSNotification).userInfo!
         let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
+        let rawAnimationCurve = ((notification as NSNotification).userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).uint32Value << 16
         let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
         
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: [.BeginFromCurrentState, animationCurve], animations: {
-            self.bottomLayoutConstraint?.updateOffset(0)
+        UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
+            self.bottomLayoutConstraint?.updateOffset(amount: 0)
             self.updateConstraintsIfNeeded()
             }, completion: nil)
     }
     
-    func keyboardWillShowNotification(notification: NSNotification) {
-        let userInfo = notification.userInfo!
+    func keyboardWillShowNotification(_ notification: Notification) {
+        let userInfo = (notification as NSNotification).userInfo!
         let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        let convertedKeyboardEndFrame = self.convertRect(keyboardEndFrame, fromView: self.window)
-        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
+        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let convertedKeyboardEndFrame = self.convert(keyboardEndFrame, from: self.window)
+        let rawAnimationCurve = ((notification as NSNotification).userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).uint32Value << 16
         let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: [.BeginFromCurrentState, animationCurve], animations: {
-            self.bottomLayoutConstraint?.updateOffset(-convertedKeyboardEndFrame.height)
+        UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
+            self.bottomLayoutConstraint?.updateOffset(amount: -convertedKeyboardEndFrame.height)
             self.updateConstraintsIfNeeded()
         }, completion: nil)
     }

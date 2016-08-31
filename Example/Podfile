@@ -2,13 +2,19 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 def common_pods
+  pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
   pod 'ActionCableClient', :path => '../'
+  pod 'SwiftyJSON', :git => 'https://github.com/danielrhodes/SwiftyJSON.git', :branch => 'swift3'
+  pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', :branch => 'feature/0.40.0'
+end
+
+def common_test_pods
+  pod 'Quick', '~> 0.9.3'
+  pod 'Nimble', '3.2.0'
 end
 
 target 'ActionCableClient-Example-iOS' do
     common_pods
-    pod 'SwiftyJSON'
-    pod 'SnapKit'
 end
 
 target 'ActionCableClient-Example-tvOS' do
@@ -17,14 +23,10 @@ end
 
 target 'ActionCableClient-Tests-iOS' do
     common_pods
-    pod 'Quick', '~> 0.9.3'
-    pod 'Nimble', '3.2.0'
-    pod 'SwiftyJSON'
+    common_test_pods
 end
 
 target 'ActionCableClient-Tests-tvOS' do
     common_pods
-    pod 'Quick', '~> 0.9.3'
-    pod 'Nimble', '3.2.0'
-    pod 'SwiftyJSON'
+    common_test_pods
 end

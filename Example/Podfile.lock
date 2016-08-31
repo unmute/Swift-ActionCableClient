@@ -1,9 +1,9 @@
 PODS:
-  - ActionCableClient (0.1.5):
+  - ActionCableClient (0.1.6):
     - Starscream (~> 1.1.3)
   - Nimble (3.2.0)
   - Quick (0.9.3)
-  - SnapKit (0.21.0)
+  - SnapKit (0.40.0.beta4)
   - Starscream (1.1.3)
   - SwiftyJSON (2.3.2)
 
@@ -11,21 +11,42 @@ DEPENDENCIES:
   - ActionCableClient (from `../`)
   - Nimble (= 3.2.0)
   - Quick (~> 0.9.3)
-  - SnapKit
-  - SwiftyJSON
+  - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `feature/0.40.0`)
+  - Starscream (from `https://github.com/daltoniam/Starscream.git`, branch `swift3`)
+  - SwiftyJSON (from `https://github.com/danielrhodes/SwiftyJSON.git`, branch `swift3`)
 
 EXTERNAL SOURCES:
   ActionCableClient:
     :path: "../"
+  SnapKit:
+    :branch: feature/0.40.0
+    :git: https://github.com/SnapKit/SnapKit.git
+  Starscream:
+    :branch: swift3
+    :git: https://github.com/daltoniam/Starscream.git
+  SwiftyJSON:
+    :branch: swift3
+    :git: https://github.com/danielrhodes/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SnapKit:
+    :commit: ca34ad4252d542cfe0ba8840ef2c95737290e107
+    :git: https://github.com/SnapKit/SnapKit.git
+  Starscream:
+    :commit: b1472f2a99a747ffda35c43ac4eb58b73c59722a
+    :git: https://github.com/daltoniam/Starscream.git
+  SwiftyJSON:
+    :commit: c5851a6d4d0c27fd342ccbf687277e04dc03d65f
+    :git: https://github.com/danielrhodes/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  ActionCableClient: c82dd4478e7020add0f50119d99a556bc47b30eb
+  ActionCableClient: 4fb0b7895615d6048efd9b3aa76c135731b1e78e
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
-  SnapKit: 2756fe24b706367af224c9c508d2f9166d03354c
+  SnapKit: 2eb32fcdca2206e611ef40d2650fe19b7469c91b
   Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  SwiftyJSON: 65217915a595c3e967100677d32b55ea33f8eada
 
-PODFILE CHECKSUM: fed025b5199cc6dcebdbc2044180cec406598172
+PODFILE CHECKSUM: 1bd43c6d8bcc07f361345a187a743511845539de
 
-COCOAPODS: 1.0.0.beta.6
+COCOAPODS: 1.1.0.beta.1
