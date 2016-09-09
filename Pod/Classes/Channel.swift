@@ -89,7 +89,7 @@ open class Channel: Hashable, Equatable {
         self.identifier = identifier
     }
     
-    open func onReceive(_ action:String, handler: (OnReceiveClosure)) -> Void {
+    open func onReceive(_ action:String, handler: @escaping (OnReceiveClosure)) -> Void {
         onReceiveActionHooks[action] = handler
     }
     

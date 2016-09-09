@@ -58,7 +58,7 @@ internal class RetryHandler : NSObject {
         self.strategy = strategy
     }
     
-    func retry(_ callback: ((Void) -> (Void)))  {
+    func retry(_ callback: @escaping ((Void) -> (Void)))  {
         self.retries += 1
         
         // Save callback

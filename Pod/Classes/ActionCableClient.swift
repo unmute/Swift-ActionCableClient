@@ -25,7 +25,7 @@ import Starscream
 
 public typealias ActionPayload = Dictionary<String, Any>
 
-public class ActionCableClient {
+open class ActionCableClient {
   
     //MARK: Socket
     fileprivate(set) var socket : WebSocket
@@ -40,44 +40,44 @@ public class ActionCableClient {
     /// Will Connect
     ///
     /// Called when the client is about to connect
-    public var willConnect: (() -> Void)?
+    open var willConnect: (() -> Void)?
     /// On Connected
     ///
     /// Called when the client has connected
-    public var onConnected: (() -> Void)?
+    open var onConnected: (() -> Void)?
     /// On Disconnected
     ///
     /// Called when the client disconnected
-    public var onDisconnected: ((ConnectionError?) -> Void)?
+    open var onDisconnected: ((ConnectionError?) -> Void)?
     /// Will Reconnect
     ///
     /// Called when the client is about to reconnect
-    public var willReconnect: (() -> Bool)?
+    open var willReconnect: (() -> Bool)?
     /// On Rejected
     ///
     /// Called when the client has been rejected from connecting.
-    public var onRejected: (() -> Void)?
+    open var onRejected: (() -> Void)?
     /// On Ping
     ///
     /// Called when the server pings the client
-    public var onPing: (() -> Void)?
+    open var onPing: (() -> Void)?
     
     // MARK: Channel Callbacks
-    public var onChannelSubscribed: ((Channel) -> (Void))?
-    public var onChannelUnsubscribed: ((Channel) -> (Void))?
-    public var onChannelRejected: ((Channel) -> (Void))?
-    public var onChannelReceive: ((Channel, Any?, Swift.Error?) -> Void)?
+    open var onChannelSubscribed: ((Channel) -> (Void))?
+    open var onChannelUnsubscribed: ((Channel) -> (Void))?
+    open var onChannelRejected: ((Channel) -> (Void))?
+    open var onChannelReceive: ((Channel, Any?, Swift.Error?) -> Void)?
     
     //MARK: Properties
-    public var isConnected : Bool { return socket.isConnected }
-    public var url: Foundation.URL { return socket.currentURL }
+    open var isConnected : Bool { return socket.isConnected }
+    open var url: Foundation.URL { return socket.currentURL }
     
-    public var headers : [String: String] {
+    open var headers : [String: String] {
         get { return socket.headers }
         set { socket.headers = newValue }
     }
     
-    public var origin : String? {
+    open var origin : String? {
         get { return socket.origin }
         set { socket.origin = newValue }
     }
@@ -99,7 +99,7 @@ public class ActionCableClient {
     
     /// Connect with the server
     @discardableResult
-    public func connect() -> ActionCableClient {
+    open func connect() -> ActionCableClient {
         DispatchQueue.main.async {
           if let callback = self.willConnect {
             callback()
@@ -115,7 +115,7 @@ public class ActionCableClient {
     }
   
     /// Disconnect from the server.
-    public func disconnect() {
+    open func disconnect() {
         manualDisconnectFlag = true
         socket.disconnect(forceTimeout: 0)
     }
@@ -193,7 +193,7 @@ extension ActionCableClient {
     /// - Parameters:
     ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. RoomChannel)
     /// - Returns: a Channel
-    @warn_unused_result(message="You must hold on to the Channel returned from a create(_:)")
+    
     public func create(_ name: String) -> Channel {
         let channel = create(name, identifier: nil, autoSubscribe: true, bufferActions: true)
         return channel
@@ -206,7 +206,7 @@ extension ActionCableClient {
     ///     - identifier: An optional Dictionary with parameters to be passed into the Channel on each request
     ///     - autoSubscribe: Whether to automatically subscribe to the channel. Defaults to true.
     /// - Returns: a Channel
-    @warn_unused_result(message="You must hold on to the Channel returned from a create(_:)")
+    
     public func create(_ name: String, identifier: ChannelIdentifier?, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
         // Look in existing channels and return that
         if let channel = channels[name] { return channel }

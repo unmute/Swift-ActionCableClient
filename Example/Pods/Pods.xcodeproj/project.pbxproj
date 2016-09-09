@@ -2024,6 +2024,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					2718709D4970A991235D8D7BB2BA8E5D = {
+						LastSwiftMigration = 0800;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -3353,7 +3358,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ActionCableClient-iOS10.0/ActionCableClient-iOS10.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ActionCableClient-iOS10.0/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ActionCableClient-iOS10.0/ActionCableClient-iOS10.0.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -3509,7 +3514,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ActionCableClient-iOS10.0/ActionCableClient-iOS10.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ActionCableClient-iOS10.0/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ActionCableClient-iOS10.0/ActionCableClient-iOS10.0.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
