@@ -48,8 +48,8 @@ class ChatView : UIView {
         
         self.backgroundColor = UIColor.whiteColor()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChatView.keyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChatView.keyboardWillHideNotification(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     deinit {
