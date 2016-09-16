@@ -9,11 +9,21 @@
 ## Installation
 
 ActionCableClient is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+it, simply add the following line to your `Podfile`:
 
 ```ruby
 pod "ActionCableClient"
 ```
+
+### Swift 3
+If you are looking for a Swift 3 Compatibile version, use the `Podfile` example below.
+
+```ruby
+pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
+pod 'ActionCableClient', :git => 'https://github.com/danielrhodes/Swift-ActionCableClient', :branch => 'swift3'
+```
+
+Note: the API may have changed in some places.
 
 ## Usage
 
