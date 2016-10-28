@@ -67,11 +67,7 @@
 		86E78CF41DC32D8200FE3B71 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		86E78CF51DC32D8200FE3B71 /* TestConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestConfiguration.swift; path = Tests/TestConfiguration.swift; sourceTree = SOURCE_ROOT; };
 		86E78CFE1DC32EAD00FE3B71 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		86E78D0A1DC330A700FE3B71 /* ActionCableClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCableClientTests.swift; sourceTree = "<group>"; };
-		86E78D0C1DC330A700FE3B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86E78D171DC330DC00FE3B71 /* ActionCableClient-Test-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ActionCableClient-Test-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		86E78D191DC330DC00FE3B71 /* ActionCableClient_Test_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCableClient_Test_iOS.swift; sourceTree = "<group>"; };
-		86E78D1B1DC330DC00FE3B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86E78D251DC3312400FE3B71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../../../Library/Developer/Xcode/DerivedData/ActionCableClient-dqlkwbqjlfkoovgogjmwviglajzr/Build/Products/Debug-iphonesimulator/Nimble.framework"; sourceTree = "<group>"; };
 		86E78D261DC3312400FE3B71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../Library/Developer/Xcode/DerivedData/ActionCableClient-dqlkwbqjlfkoovgogjmwviglajzr/Build/Products/Debug-iphonesimulator/Quick.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,10 +107,8 @@
 		86D451031DC31840006A516E = {
 			isa = PBXGroup;
 			children = (
-				86D4510F1DC31840006A516E /* ActionCableClient */,
+				86D4510F1DC31840006A516E /* Source */,
 				86D451961DC32016006A516E /* Tests */,
-				86E78D091DC330A700FE3B71 /* ActionCableClientTests */,
-				86E78D181DC330DC00FE3B71 /* ActionCableClient-Test-iOS */,
 				86D4510E1DC31840006A516E /* Products */,
 				86D451421DC31942006A516E /* Frameworks */,
 			);
@@ -130,13 +124,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		86D4510F1DC31840006A516E /* ActionCableClient */ = {
+		86D4510F1DC31840006A516E /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				86D4514C1DC319E7006A516E /* Supporting Files */,
 				86D4511A1DC31874006A516E /* Assets */,
 				86D4511C1DC31874006A516E /* Source */,
 			);
+			name = Source;
 			path = ActionCableClient;
 			sourceTree = "<group>";
 		};
@@ -197,24 +192,6 @@
 			);
 			name = Tests;
 			path = "ActionCableClient-iOS-Tests";
-			sourceTree = "<group>";
-		};
-		86E78D091DC330A700FE3B71 /* ActionCableClientTests */ = {
-			isa = PBXGroup;
-			children = (
-				86E78D0A1DC330A700FE3B71 /* ActionCableClientTests.swift */,
-				86E78D0C1DC330A700FE3B71 /* Info.plist */,
-			);
-			path = ActionCableClientTests;
-			sourceTree = "<group>";
-		};
-		86E78D181DC330DC00FE3B71 /* ActionCableClient-Test-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				86E78D191DC330DC00FE3B71 /* ActionCableClient_Test_iOS.swift */,
-				86E78D1B1DC330DC00FE3B71 /* Info.plist */,
-			);
-			path = "ActionCableClient-Test-iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
