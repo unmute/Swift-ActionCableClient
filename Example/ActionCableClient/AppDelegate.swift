@@ -27,9 +27,8 @@ import ActionCableClient
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: Any]?) -> Bool {
-        
+  
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         let controller = ChatViewController()
         let navigationController = UINavigationController()
         navigationController.pushViewController(controller, animated: false)

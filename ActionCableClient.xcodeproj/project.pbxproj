@@ -1,0 +1,679 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		86D451461DC31946006A516E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D451451DC31946006A516E /* Foundation.framework */; };
+		86D451481DC3194F006A516E /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D451471DC3194F006A516E /* Starscream.framework */; };
+		86D451491DC31954006A516E /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D451431DC31942006A516E /* Starscream.framework */; };
+		86D4514B1DC31959006A516E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D4514A1DC31959006A516E /* Foundation.framework */; };
+		86E78CE21DC3220400FE3B71 /* ActionCableClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 86E78CDA1DC3220400FE3B71 /* ActionCableClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86E78CE31DC3220400FE3B71 /* ActionCableClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDB1DC3220400FE3B71 /* ActionCableClient.swift */; };
+		86E78CE41DC3220400FE3B71 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDC1DC3220400FE3B71 /* Channel.swift */; };
+		86E78CE51DC3220400FE3B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDD1DC3220400FE3B71 /* Constants.swift */; };
+		86E78CE61DC3220400FE3B71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDE1DC3220400FE3B71 /* Error.swift */; };
+		86E78CE71DC3220400FE3B71 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDF1DC3220400FE3B71 /* JSONSerializer.swift */; };
+		86E78CE81DC3220400FE3B71 /* RetryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CE01DC3220400FE3B71 /* RetryHandler.swift */; };
+		86E78CFD1DC32E8B00FE3B71 /* ActionCableClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 86E78CDA1DC3220400FE3B71 /* ActionCableClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86E78D221DC3311A00FE3B71 /* ActionCableChannelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CF21DC32D8200FE3B71 /* ActionCableChannelTest.swift */; };
+		86E78D231DC3311A00FE3B71 /* ActionCableClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CF31DC32D8200FE3B71 /* ActionCableClientTest.swift */; };
+		86E78D241DC3311A00FE3B71 /* TestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CF51DC32D8200FE3B71 /* TestConfiguration.swift */; };
+		86E78D271DC3312400FE3B71 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E78D251DC3312400FE3B71 /* Nimble.framework */; };
+		86E78D281DC3312400FE3B71 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E78D261DC3312400FE3B71 /* Quick.framework */; };
+		86E78D291DC331FD00FE3B71 /* ActionCableClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D4510D1DC31840006A516E /* ActionCableClient.framework */; };
+		86E78D2B1DC333E200FE3B71 /* ActionCableClient.h in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDA1DC3220400FE3B71 /* ActionCableClient.h */; };
+		86E78D2C1DC333E200FE3B71 /* ActionCableClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDB1DC3220400FE3B71 /* ActionCableClient.swift */; };
+		86E78D2D1DC333E200FE3B71 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDC1DC3220400FE3B71 /* Channel.swift */; };
+		86E78D2E1DC333E200FE3B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDD1DC3220400FE3B71 /* Constants.swift */; };
+		86E78D2F1DC333E200FE3B71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDE1DC3220400FE3B71 /* Error.swift */; };
+		86E78D301DC333E200FE3B71 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CDF1DC3220400FE3B71 /* JSONSerializer.swift */; };
+		86E78D311DC333E200FE3B71 /* RetryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E78CE01DC3220400FE3B71 /* RetryHandler.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86E78D1D1DC330DC00FE3B71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86D451041DC31840006A516E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86D4510C1DC31840006A516E;
+			remoteInfo = "ActionCableClient iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		86D4510D1DC31840006A516E /* ActionCableClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionCableClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D4511B1DC31874006A516E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		86D451331DC3189D006A516E /* ActionCableClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionCableClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D451431DC31942006A516E /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "../../../Library/Developer/Xcode/DerivedData/ActionCableClient-dqlkwbqjlfkoovgogjmwviglajzr/Build/Products/Debug-iphonesimulator/Starscream.framework"; sourceTree = "<group>"; };
+		86D451451DC31946006A516E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		86D451471DC3194F006A516E /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "Carthage/Checkouts/Starscream/build/Debug-appletvos/Starscream.framework"; sourceTree = "<group>"; };
+		86D4514A1DC31959006A516E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		86E78CDA1DC3220400FE3B71 /* ActionCableClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionCableClient.h; path = Source/ActionCableClient.h; sourceTree = SOURCE_ROOT; };
+		86E78CDB1DC3220400FE3B71 /* ActionCableClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionCableClient.swift; path = Source/Classes/ActionCableClient.swift; sourceTree = SOURCE_ROOT; };
+		86E78CDC1DC3220400FE3B71 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = Source/Classes/Channel.swift; sourceTree = SOURCE_ROOT; };
+		86E78CDD1DC3220400FE3B71 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Classes/Constants.swift; sourceTree = SOURCE_ROOT; };
+		86E78CDE1DC3220400FE3B71 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Classes/Error.swift; sourceTree = SOURCE_ROOT; };
+		86E78CDF1DC3220400FE3B71 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONSerializer.swift; path = Source/Classes/JSONSerializer.swift; sourceTree = SOURCE_ROOT; };
+		86E78CE01DC3220400FE3B71 /* RetryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetryHandler.swift; path = Source/Classes/RetryHandler.swift; sourceTree = SOURCE_ROOT; };
+		86E78CE11DC3220400FE3B71 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
+		86E78CEA1DC323EF00FE3B71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		86E78CEB1DC323EF00FE3B71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
+		86E78CF21DC32D8200FE3B71 /* ActionCableChannelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionCableChannelTest.swift; path = Tests/ActionCableChannelTest.swift; sourceTree = SOURCE_ROOT; };
+		86E78CF31DC32D8200FE3B71 /* ActionCableClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionCableClientTest.swift; path = Tests/ActionCableClientTest.swift; sourceTree = SOURCE_ROOT; };
+		86E78CF41DC32D8200FE3B71 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
+		86E78CF51DC32D8200FE3B71 /* TestConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestConfiguration.swift; path = Tests/TestConfiguration.swift; sourceTree = SOURCE_ROOT; };
+		86E78CFE1DC32EAD00FE3B71 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		86E78D0A1DC330A700FE3B71 /* ActionCableClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCableClientTests.swift; sourceTree = "<group>"; };
+		86E78D0C1DC330A700FE3B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86E78D171DC330DC00FE3B71 /* ActionCableClient-Test-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ActionCableClient-Test-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86E78D191DC330DC00FE3B71 /* ActionCableClient_Test_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCableClient_Test_iOS.swift; sourceTree = "<group>"; };
+		86E78D1B1DC330DC00FE3B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86E78D251DC3312400FE3B71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../../../Library/Developer/Xcode/DerivedData/ActionCableClient-dqlkwbqjlfkoovgogjmwviglajzr/Build/Products/Debug-iphonesimulator/Nimble.framework"; sourceTree = "<group>"; };
+		86E78D261DC3312400FE3B71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../Library/Developer/Xcode/DerivedData/ActionCableClient-dqlkwbqjlfkoovgogjmwviglajzr/Build/Products/Debug-iphonesimulator/Quick.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86D451091DC31840006A516E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D4514B1DC31959006A516E /* Foundation.framework in Frameworks */,
+				86D451491DC31954006A516E /* Starscream.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D4512F1DC3189D006A516E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D451481DC3194F006A516E /* Starscream.framework in Frameworks */,
+				86D451461DC31946006A516E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86E78D141DC330DC00FE3B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E78D291DC331FD00FE3B71 /* ActionCableClient.framework in Frameworks */,
+				86E78D271DC3312400FE3B71 /* Nimble.framework in Frameworks */,
+				86E78D281DC3312400FE3B71 /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		86D451031DC31840006A516E = {
+			isa = PBXGroup;
+			children = (
+				86D4510F1DC31840006A516E /* ActionCableClient */,
+				86D451961DC32016006A516E /* Tests */,
+				86E78D091DC330A700FE3B71 /* ActionCableClientTests */,
+				86E78D181DC330DC00FE3B71 /* ActionCableClient-Test-iOS */,
+				86D4510E1DC31840006A516E /* Products */,
+				86D451421DC31942006A516E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		86D4510E1DC31840006A516E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86D4510D1DC31840006A516E /* ActionCableClient.framework */,
+				86D451331DC3189D006A516E /* ActionCableClient.framework */,
+				86E78D171DC330DC00FE3B71 /* ActionCableClient-Test-iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86D4510F1DC31840006A516E /* ActionCableClient */ = {
+			isa = PBXGroup;
+			children = (
+				86D4514C1DC319E7006A516E /* Supporting Files */,
+				86D4511A1DC31874006A516E /* Assets */,
+				86D4511C1DC31874006A516E /* Source */,
+			);
+			path = ActionCableClient;
+			sourceTree = "<group>";
+		};
+		86D4511A1DC31874006A516E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				86D4511B1DC31874006A516E /* .gitkeep */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		86D4511C1DC31874006A516E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				86E78CDA1DC3220400FE3B71 /* ActionCableClient.h */,
+				86E78CDB1DC3220400FE3B71 /* ActionCableClient.swift */,
+				86E78CDC1DC3220400FE3B71 /* Channel.swift */,
+				86E78CDD1DC3220400FE3B71 /* Constants.swift */,
+				86E78CDE1DC3220400FE3B71 /* Error.swift */,
+				86E78CDF1DC3220400FE3B71 /* JSONSerializer.swift */,
+				86E78CE01DC3220400FE3B71 /* RetryHandler.swift */,
+			);
+			name = Source;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		86D451421DC31942006A516E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86E78D251DC3312400FE3B71 /* Nimble.framework */,
+				86E78D261DC3312400FE3B71 /* Quick.framework */,
+				86E78CFE1DC32EAD00FE3B71 /* XCTest.framework */,
+				86E78CEA1DC323EF00FE3B71 /* Nimble.framework */,
+				86E78CEB1DC323EF00FE3B71 /* Quick.framework */,
+				86D4514A1DC31959006A516E /* Foundation.framework */,
+				86D451471DC3194F006A516E /* Starscream.framework */,
+				86D451451DC31946006A516E /* Foundation.framework */,
+				86D451431DC31942006A516E /* Starscream.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86D4514C1DC319E7006A516E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86E78CE11DC3220400FE3B71 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86D451961DC32016006A516E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				86E78CF21DC32D8200FE3B71 /* ActionCableChannelTest.swift */,
+				86E78CF31DC32D8200FE3B71 /* ActionCableClientTest.swift */,
+				86E78CF41DC32D8200FE3B71 /* Info.plist */,
+				86E78CF51DC32D8200FE3B71 /* TestConfiguration.swift */,
+			);
+			name = Tests;
+			path = "ActionCableClient-iOS-Tests";
+			sourceTree = "<group>";
+		};
+		86E78D091DC330A700FE3B71 /* ActionCableClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				86E78D0A1DC330A700FE3B71 /* ActionCableClientTests.swift */,
+				86E78D0C1DC330A700FE3B71 /* Info.plist */,
+			);
+			path = ActionCableClientTests;
+			sourceTree = "<group>";
+		};
+		86E78D181DC330DC00FE3B71 /* ActionCableClient-Test-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				86E78D191DC330DC00FE3B71 /* ActionCableClient_Test_iOS.swift */,
+				86E78D1B1DC330DC00FE3B71 /* Info.plist */,
+			);
+			path = "ActionCableClient-Test-iOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		86D4510A1DC31840006A516E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E78CE21DC3220400FE3B71 /* ActionCableClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D451301DC3189D006A516E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E78CFD1DC32E8B00FE3B71 /* ActionCableClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		86D4510C1DC31840006A516E /* ActionCableClient iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86D451151DC31840006A516E /* Build configuration list for PBXNativeTarget "ActionCableClient iOS" */;
+			buildPhases = (
+				86D451081DC31840006A516E /* Sources */,
+				86D451091DC31840006A516E /* Frameworks */,
+				86D4510A1DC31840006A516E /* Headers */,
+				86D4510B1DC31840006A516E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ActionCableClient iOS";
+			productName = ActionCableClient;
+			productReference = 86D4510D1DC31840006A516E /* ActionCableClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		86D451321DC3189D006A516E /* ActionCableClient tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86D451381DC3189D006A516E /* Build configuration list for PBXNativeTarget "ActionCableClient tvOS" */;
+			buildPhases = (
+				86D4512E1DC3189D006A516E /* Sources */,
+				86D4512F1DC3189D006A516E /* Frameworks */,
+				86D451301DC3189D006A516E /* Headers */,
+				86D451311DC3189D006A516E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ActionCableClient tvOS";
+			productName = "ActionCableClient-tvOS";
+			productReference = 86D451331DC3189D006A516E /* ActionCableClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		86E78D161DC330DC00FE3B71 /* ActionCableClient-Test-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86E78D1F1DC330DC00FE3B71 /* Build configuration list for PBXNativeTarget "ActionCableClient-Test-iOS" */;
+			buildPhases = (
+				86E78D131DC330DC00FE3B71 /* Sources */,
+				86E78D141DC330DC00FE3B71 /* Frameworks */,
+				86E78D151DC330DC00FE3B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86E78D1E1DC330DC00FE3B71 /* PBXTargetDependency */,
+			);
+			name = "ActionCableClient-Test-iOS";
+			productName = "ActionCableClient-Test-iOS";
+			productReference = 86E78D171DC330DC00FE3B71 /* ActionCableClient-Test-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		86D451041DC31840006A516E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Daniel Rhodes";
+				TargetAttributes = {
+					86D4510C1DC31840006A516E = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					86D451321DC3189D006A516E = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					86E78D161DC330DC00FE3B71 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 86D451071DC31840006A516E /* Build configuration list for PBXProject "ActionCableClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 86D451031DC31840006A516E;
+			productRefGroup = 86D4510E1DC31840006A516E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86D4510C1DC31840006A516E /* ActionCableClient iOS */,
+				86D451321DC3189D006A516E /* ActionCableClient tvOS */,
+				86E78D161DC330DC00FE3B71 /* ActionCableClient-Test-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86D4510B1DC31840006A516E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D451311DC3189D006A516E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86E78D151DC330DC00FE3B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		86D451081DC31840006A516E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E78CE71DC3220400FE3B71 /* JSONSerializer.swift in Sources */,
+				86E78CE61DC3220400FE3B71 /* Error.swift in Sources */,
+				86E78CE31DC3220400FE3B71 /* ActionCableClient.swift in Sources */,
+				86E78CE81DC3220400FE3B71 /* RetryHandler.swift in Sources */,
+				86E78CE41DC3220400FE3B71 /* Channel.swift in Sources */,
+				86E78CE51DC3220400FE3B71 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D4512E1DC3189D006A516E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E78D2B1DC333E200FE3B71 /* ActionCableClient.h in Sources */,
+				86E78D2C1DC333E200FE3B71 /* ActionCableClient.swift in Sources */,
+				86E78D2D1DC333E200FE3B71 /* Channel.swift in Sources */,
+				86E78D2E1DC333E200FE3B71 /* Constants.swift in Sources */,
+				86E78D2F1DC333E200FE3B71 /* Error.swift in Sources */,
+				86E78D301DC333E200FE3B71 /* JSONSerializer.swift in Sources */,
+				86E78D311DC333E200FE3B71 /* RetryHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86E78D131DC330DC00FE3B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E78D221DC3311A00FE3B71 /* ActionCableChannelTest.swift in Sources */,
+				86E78D231DC3311A00FE3B71 /* ActionCableClientTest.swift in Sources */,
+				86E78D241DC3311A00FE3B71 /* TestConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86E78D1E1DC330DC00FE3B71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86D4510C1DC31840006A516E /* ActionCableClient iOS */;
+			targetProxy = 86E78D1D1DC330DC00FE3B71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		86D451131DC31840006A516E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		86D451141DC31840006A516E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		86D451161DC31840006A516E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = marker;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielrhodes.ActionCableClient;
+				PRODUCT_NAME = ActionCableClient;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		86D451171DC31840006A516E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielrhodes.ActionCableClient;
+				PRODUCT_NAME = ActionCableClient;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		86D451391DC3189D006A516E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = marker;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Starscream/build/Debug-appletvos",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielrhodes.ActionCableClient;
+				PRODUCT_NAME = ActionCableClient;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		86D4513A1DC3189D006A516E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Starscream/build/Debug-appletvos",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielrhodes.ActionCableClient;
+				PRODUCT_NAME = ActionCableClient;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		86E78D201DC330DC00FE3B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = marker;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danielrhodes.ActionCableClient-Test-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		86E78D211DC330DC00FE3B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danielrhodes.ActionCableClient-Test-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		86D451071DC31840006A516E /* Build configuration list for PBXProject "ActionCableClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D451131DC31840006A516E /* Debug */,
+				86D451141DC31840006A516E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D451151DC31840006A516E /* Build configuration list for PBXNativeTarget "ActionCableClient iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D451161DC31840006A516E /* Debug */,
+				86D451171DC31840006A516E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D451381DC3189D006A516E /* Build configuration list for PBXNativeTarget "ActionCableClient tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D451391DC3189D006A516E /* Debug */,
+				86D4513A1DC3189D006A516E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86E78D1F1DC330DC00FE3B71 /* Build configuration list for PBXNativeTarget "ActionCableClient-Test-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86E78D201DC330DC00FE3B71 /* Debug */,
+				86E78D211DC330DC00FE3B71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 86D451041DC31840006A516E /* Project object */;
+}

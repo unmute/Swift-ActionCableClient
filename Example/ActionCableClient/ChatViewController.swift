@@ -31,7 +31,7 @@ class ChatViewController: UIViewController {
     static var ChannelIdentifier = "ChatChannel"
     static var ChannelAction = "talk"
     
-    let client = ActionCableClient(url: URL(string:"ws://localhost:3000/cable")!)
+    let client = ActionCableClient(url: URL(string:"wss://actioncable-echo.herokuapp.com/cable")!)
   
     var channel: Channel?
     
@@ -48,7 +48,7 @@ class ChatViewController: UIViewController {
         chatView = ChatView(frame: view.bounds)
         view.addSubview(chatView!)
         
-        chatView?.snp_remakeConstraints({ (make) -> Void in
+        chatView?.snp.remakeConstraints({ (make) -> Void in
             make.top.bottom.left.right.equalTo(self.view)
         })
         
@@ -137,7 +137,7 @@ extension ChatViewController {
         let prettyMessage = message.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if (!prettyMessage.isEmpty) {
             print("Sending Message: \(ChatViewController.ChannelIdentifier)#\(ChatViewController.ChannelAction)")
-            self.channel?.action(ChatViewController.ChannelAction, with:
+            _ = self.channel?.action(ChatViewController.ChannelAction, with:
               ["name": self.name!, "message": prettyMessage]
             )
         }

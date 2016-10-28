@@ -1,0 +1,9 @@
+[submodule "Carthage/Checkouts/Starscream"]
+	path = Carthage/Checkouts/Starscream
+	url = https://github.com/daltoniam/Starscream
+[submodule "Carthage/Checkouts/Quick"]
+	path = Carthage/Checkouts/Quick
+	url = https://github.com/Quick/Quick
+[submodule "Carthage/Checkouts/Nimble"]
+	path = Carthage/Checkouts/Nimble
+	url = https://github.com/Quick/Nimble

@@ -63,14 +63,14 @@ class ChatView : UIView {
     override func updateConstraints() {
         super.updateConstraints()
         
-        tableView.snp_remakeConstraints { (make) -> Void in
+        tableView.snp.remakeConstraints { (make) -> Void in
             make.top.left.right.equalTo(self)
-            make.bottom.equalTo(textField.snp_top)
+            make.bottom.equalTo(textField.snp.top)
         }
         
-        textField.snp_remakeConstraints { (make) -> Void in
+        textField.snp.remakeConstraints { (make) -> Void in
             make.left.right.equalTo(self)
-            make.top.equalTo(tableView.snp_bottom)
+            make.top.equalTo(tableView.snp.bottom)
             make.height.equalTo(50.0)
             self.bottomLayoutConstraint = make.bottom.equalTo(self).constraint
         }
@@ -91,7 +91,7 @@ extension ChatView {
         let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
         
         UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
-            self.bottomLayoutConstraint?.updateOffset(amount: 0)
+            self.bottomLayoutConstraint?.update(offset: 0)
             self.updateConstraintsIfNeeded()
             }, completion: nil)
     }
@@ -104,7 +104,7 @@ extension ChatView {
         let rawAnimationCurve = ((notification as NSNotification).userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).uint32Value << 16
         let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
         UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
-            self.bottomLayoutConstraint?.updateOffset(amount: -convertedKeyboardEndFrame.height)
+            self.bottomLayoutConstraint?.update(offset: -convertedKeyboardEndFrame.height)
             self.updateConstraintsIfNeeded()
         }, completion: nil)
     }

@@ -2,10 +2,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 def common_pods
-  pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
   pod 'ActionCableClient', :path => '../'
-  pod 'SwiftyJSON', :git => 'https://github.com/danielrhodes/SwiftyJSON.git', :branch => 'swift3'
-  pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', :branch => 'feature/0.40.0'
+  pod 'SwiftyJSON'
+  pod 'SnapKit'
 end
 
 def common_test_pods
@@ -19,14 +18,4 @@ end
 
 target 'ActionCableClient-Example-tvOS' do
     common_pods
-end
-
-target 'ActionCableClient-Tests-iOS' do
-    common_pods
-    common_test_pods
-end
-
-target 'ActionCableClient-Tests-tvOS' do
-    common_pods
-    common_test_pods
 end
