@@ -9,12 +9,23 @@
 
 ## Installation
 
-ActionCableClient is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your `Podfile`:
+To install, simply:
+
+#### Cocoapods
+
+Add the following line to your `Podfile` and run `pod install`
 
 ```ruby
 pod "ActionCableClient"
 ```
+
+#### Carthage
+
+Add the following to your `Cartfile` and run `carthage update` as normal.
+```ruby
+github "danielrhodes/Swift-ActionCableClient"
+```
+
 
 ## Usage
 
