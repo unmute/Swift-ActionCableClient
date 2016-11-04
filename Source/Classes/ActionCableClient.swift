@@ -34,7 +34,7 @@ open class ActionCableClient {
     ///
     /// If a disconnection occurs, reconnnectionStrategy determines and calculates
     /// the time interval at which a retry happens.
-    var reconnectionStrategy : RetryStrategy = .logarithmicBackoff(maxRetries: 5, maxIntervalTime: 30.0)
+    open var reconnectionStrategy : RetryStrategy = .logarithmicBackoff(maxRetries: 5, maxIntervalTime: 30.0)
     
     //MARK: Global Callbacks
     /// Will Connect
