@@ -3,27 +3,29 @@
 [![Version](https://img.shields.io/cocoapods/v/ActionCableClient.svg?style=flat)](http://cocoapods.org/pods/ActionCableClient)
 [![License](https://img.shields.io/cocoapods/l/ActionCableClient.svg?style=flat)](http://cocoapods.org/pods/ActionCableClient)
 [![Platform](https://img.shields.io/cocoapods/p/ActionCableClient.svg?style=flat)](http://cocoapods.org/pods/ActionCableClient)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 [ActionCable](https://github.com/rails/rails/tree/master/actioncable) is a new WebSockets server being released with Rails 5 which makes it easy to add real-time features to your app. This Swift client makes it dead-simple to connect with that server, abstracting away everything except what you need to get going.
 
 ## Installation
 
-ActionCableClient is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your `Podfile`:
+To install, simply:
+
+#### Cocoapods
+
+Add the following line to your `Podfile` and run `pod install`
 
 ```ruby
 pod "ActionCableClient"
 ```
 
-### Swift 3
-If you are looking for a Swift 3 Compatibile version, use the `Podfile` example below.
+#### Carthage
 
+Add the following to your `Cartfile` and run `carthage update` as normal.
 ```ruby
-pod 'Starscream', :git => 'https://github.com/daltoniam/Starscream.git', :branch => 'swift3'
-pod 'ActionCableClient', :git => 'https://github.com/danielrhodes/Swift-ActionCableClient', :branch => 'swift3'
+github "danielrhodes/Swift-ActionCableClient"
 ```
 
-Note: the API may have changed in some places.
 
 ## Usage
 
@@ -41,7 +43,7 @@ client.onConnected = {
     print("Connected!")
 }
 
-client.onDisconnected = {(error: ErrorType?) in
+client.onDisconnected = {(error: Error?) in
     print("Disconnected!")
 }
 ```
@@ -59,7 +61,7 @@ let roomChannel = client.create("RoomChannel") //The channel name must match the
 ```swift
 
 // Receive a message from the server. Typically a Dictionary.
-roomChannel.onReceive = { (JSON : AnyObject?, error : ErrorType?) in
+roomChannel.onReceive = { (JSON : Any?, error : ErrorType?) in
     print("Received", JSON, error)
 }
 
@@ -122,8 +124,6 @@ client.onPing = {
 For more documentation, see the [wiki](https://github.com/danielrhodes/Swift-ActionCableClient/wiki/Documentation)
 
 ## Requirements
-
-[SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON): Used internally to ensure we are getting good responses from the server.
 
 [Starscream](https://github.com/daltoniam/Starscream): The underlying WebSocket library.
 
