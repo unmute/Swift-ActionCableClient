@@ -34,7 +34,7 @@ github "danielrhodes/Swift-ActionCableClient"
 ```swift
 import ActionCableClient
 
-self.client = ActionCableClient(URL: NSURL(string: "ws://domain.tld/cable")!)
+self.client = ActionCableClient(url: URL(string: "ws://domain.tld/cable")!)
 
 // Connect!
 client.connect()
@@ -53,6 +53,10 @@ client.onDisconnected = {(error: Error?) in
 ```swift
 // Create the Room Channel
 let roomChannel = client.create("RoomChannel") //The channel name must match the class name on the server
+
+// More advanced usage
+let room_identifier = ["room_id" : identifier]
+let roomChannel = client.create("RoomChannel", identifier: room_identifier, autoSubscribe: true, bufferActions: true)
 
 ```
 
@@ -90,6 +94,8 @@ roomChannel["speak"](["message": "Hello, World!"])
 
 // Alternate less magical way:
 roomChannel.action("speak", ["message": "Hello, World!"])
+
+// Note: The `speak` action must be defined already on the server
 ```
 
 ### Authorization & Headers
