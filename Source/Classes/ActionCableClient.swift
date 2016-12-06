@@ -89,7 +89,7 @@ open class ActionCableClient {
     /// This client must be retained somewhere, such as on the app delegate.
     ///
     ///  ```swift
-    ///  let client = ActionCableClient(URL: NSURL(string: "ws://localhost:3000/cable")!)
+    ///  let client = ActionCableClient(url: URL(string: "ws://localhost:3000/cable")!)
     ///  ```
     public required init(url: URL) {
         /// Setup Initialize Socket
@@ -144,31 +144,45 @@ open class ActionCableClient {
     }
   
     @discardableResult
-    internal func transmit(_ data: ActionPayload? = nil, on channel: Channel, as command: Command) throws -> Bool {
-        // First let's see if we can even encode this data
+  internal func transmit(_ data: ActionPayload? = nil, on channel: Channel, as command: Command, completion: ((Error?) -> ())? = nil) {
+      
+      ActionCableConcurrentQueue.async { [weak self] in
         
-        let JSONString = try JSONSerializer.serialize(channel, command: command, data: data)
+        guard let bSelf = self else { return }
         
-        //
-        // If it's a message, let's see if we are subscribed first.
-        //
-        // It is important to check this one first, because if we are buffering
-        // actions, we want to tell the channel it's not subscribed rather
-        // than we are not connected.
-        //
+        do {
         
-        if (command == Command.message) {
+          // First let's see if we can even encode this data
+          
+          let JSONString = try JSONSerializer.serialize(channel, command: command, data: data)
+          
+          //
+          // If it's a message, let's see if we are subscribed first.
+          //
+          // It is important to check this one first, because if we are buffering
+          // actions, we want to tell the channel it's not subscribed rather
+          // than we are not connected.
+          //
+          
+          if (command == Command.message) {
             guard channel.isSubscribed else { throw TransmitError.notSubscribed }
+          }
+          
+          // Let's check if we are connected.
+          guard bSelf.isConnected else { throw TransmitError.notConnected }
+          
+          bSelf.socket.write(string: JSONString) {
+            if let completion = completion {
+              completion(nil)
+            }
+          }
+          
+        } catch {
+          if let completion = completion {
+            completion(nil)
+          }
         }
-      
-        // Let's check if we are connected.
-        guard isConnected else { throw TransmitError.notConnected }
-      
-        socket.write(string: JSONString) {
-          //FINISHED!
-        }
-        
-        return true
+      }
     }
     
     // MARK: Properties
@@ -192,7 +206,7 @@ extension ActionCableClient {
     /// Create and subscribe to a channel.
     ///
     /// - Parameters:
-    ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. RoomChannel)
+    ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. `RoomChannel`)
     /// - Returns: a Channel
     
     public func create(_ name: String) -> Channel {
@@ -203,12 +217,13 @@ extension ActionCableClient {
     /// Create and subscribe to a channel.
     /// 
     /// - Parameters:
-    ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. RoomChannel)
-    ///     - identifier: An optional Dictionary with parameters to be passed into the Channel on each request
-    ///     - autoSubscribe: Whether to automatically subscribe to the channel. Defaults to true.
+    ///     - name: The name of the channel. The name must match the class name on the server exactly. (e.g. `RoomChannel`)
+    ///     - identifier: An optional `Dictionary` with parameters to be passed into the Channel on each request
+    ///     - autoSubscribe: Whether to automatically subscribe to the channel. Defaults to `true`.
+    ///     - bufferActions: Whether to save actions attempted on the channel until a successful subscription has occurred, at which point the actions are sent. Defaults to `true`.
     /// - Returns: a Channel
     
-    public func create(_ name: String, identifier: ChannelIdentifier?, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
+    public func create(_ name: String, identifier: ChannelIdentifier? = nil, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
         // Look in existing channels and return that
         if let channel = channels[name] { return channel }
         
@@ -253,34 +268,23 @@ extension ActionCableClient {
         guard let channel = unconfirmedChannels[channel.name]
           else { debugPrint("[ActionCableClient] Internal inconsistency error!"); return }
       
-        do {
-          try transmit(on: channel, as: Command.subscribe)
-        } catch {
-            debugPrint(error)
-        }
+        transmit(on: channel, as: Command.subscribe)
     }
     
     internal func unsubscribe(_ channel: Channel) {
-        do {
-          try self.transmit(on: channel, as: Command.unsubscribe)
-            
-            let message = Message(channelName: channel.name,
-                                   actionName: nil,
-                                  messageType: MessageType.cancelSubscription,
-                                         data: nil,
-                                        error: nil)
-            
-            onMessage(message)
-        } catch {
-            // There is a chance here the server could be down or not connected.
-            // However, at this point the client will need to reconnect anyways
-            // and will not resubscribe to the channel.
-            debugPrint(error)
-        }
+        transmit(on: channel, as: Command.unsubscribe)
+        
+        let message = Message(channelName: channel.name,
+                              actionName: nil,
+                              messageType: MessageType.cancelSubscription,
+                              data: nil,
+                              error: nil)
+        
+        onMessage(message)
     }
   
     @discardableResult
-    internal func action(_ action: String, on channel: Channel, with data: ActionPayload?) throws -> Bool {
+    internal func action(_ action: String, on channel: Channel, with data: ActionPayload?, completion: ((Error?) -> ())? = nil) {
           var internalData : ActionPayload
           if let data = data {
               internalData = data
@@ -290,7 +294,7 @@ extension ActionCableClient {
           
           internalData["action"] = action
       
-          return try transmit(internalData, on: channel, as: .message)
+          transmit(internalData, on: channel, as: .message, completion: completion)
       }
 }
 

@@ -49,7 +49,7 @@ open class Channel: Hashable, Equatable {
     /// A block called when a message has been received on this channel.
     ///
     /// ```swift
-    /// channel.onReceive = {(JSON : AnyObject?, error: ErrorType?) in
+    /// channel.onReceive = { (JSON : AnyObject?, error: Error?) in
     ///   print("Received:", JSON, "Error:", error)
     /// }
     /// ```
@@ -67,7 +67,7 @@ open class Channel: Hashable, Equatable {
     ///
     /// ```swift
     /// channel.onSubscribed = {
-    ///     print("Yay!")
+    ///   print("Yay!")
     /// }
     /// ```
     open var onSubscribed: (() -> Void)?
@@ -106,51 +106,77 @@ open class Channel: Hashable, Equatable {
     ///
     /// - Parameters:
     ///     - action: The name of the action (e.g. speak)
-    /// - Returns: `true` if the action was sent.
-  
-    open subscript(name: String) -> (Dictionary<String, Any>) -> Swift.Error? {
+    ///
+    open subscript(name: String) -> (Dictionary<String, Any>?) -> Void {
         
-        func executeParams(_ params : Dictionary<String, Any>?) -> Swift.Error?  {
-            return action(name, with: params)
+        func executeParams(_ params : Dictionary<String, Any>? = [:])  {
+            action(name, with: params)
         }
         
         return executeParams
     }
-    
+  
     /// Send an action.
     ///
     /// Note: ActionCable does not give any confirmation or response that an
     /// action was succcessfully executed.
     ///
     /// ```swift
-    /// channel.action("speak", ["message": "Hello, World!"])
+    /// channel.action("speak", with: ["message": "Hello, World!"])
     /// ```
     ///
     /// - Parameters:
     ///     - action: The name of the action (e.g. speak)
-    ///     - params: A `Dictionary` of JSON encodable values.
+    ///     - with: An optional `Dictionary` of JSON encodable values.
     ///
+    open func action(_ name: String, with params: [String: Any]? = [:]) {
+        action(name, with: params, completion: nil)
+    }
+  
+    /// Send an action.
     ///
-    /// - Returns: A `TransmitError` if there were any issues sending the
-    ///             message.
+    /// Note: ActionCable does not give any confirmation or response that an
+    /// action was succcessfully executed.
+    ///
+    /// ```swift
+    /// channel.action("speak", with: ["message": "Hello, World!"]) { error in
+    ///   if let error = error {
+    ///     // oh no!
+    ///   }
+    /// }
+    /// ```
+    ///
+    /// - Parameters:
+    ///     - name:   The name of the action (e.g. speak)
+    ///     - with: An optional `Dictionary` of JSON encodable values.
+    ///     - completion: A block called when the transmission was successful or with an error if there were any errors encountered while attempting to transmit. Block is called on the main thread.
+    ///
     @discardableResult
-    open func action(_ name: String, with params: [String: Any]? = nil) -> Swift.Error? {
-        do {
-          try (client.action(name, on: self, with: params))
-        // Consume the error and return false if the error is a not subscribed
-        // error and we are buffering the actions.
-        } catch TransmitError.notSubscribed where self.shouldBufferActions {
-            
-            ActionCableSerialQueue.async(execute: {
-                self.actionBuffer.append(Action(name: name, params: params))
-            })
-            
-            return TransmitError.notSubscribed
-        } catch {
-            return error
+    open func action(_ name: String, with params: [String: Any]? = [:], completion: ((Error?) -> ())?) {
+        client.action(name, on: self, with: params) { (error) in
+            do {
+              if let error = error { throw error }
+
+            // Consume the error and return false if the error is a not subscribed
+            // error and we are buffering the actions.
+            } catch TransmitError.notSubscribed where self.shouldBufferActions {
+                ActionCableSerialQueue.async(execute: {
+                    self.actionBuffer.append(Action(name: name, params: params))
+                })
+                
+                if let completion = completion {
+                    DispatchQueue.main.async {
+                        completion(TransmitError.notSubscribed)
+                    }
+                }
+            } catch {
+                if let completion = completion {
+                    DispatchQueue.main.async {
+                        completion(error)
+                    }
+                }
+            }
         }
-        
-        return nil
     }
     
     /// Subscribe to the channel on the server.

@@ -57,13 +57,11 @@ let roomChannel = client.create("RoomChannel") //The channel name must match the
 // More advanced usage
 let room_identifier = ["room_id" : identifier]
 let roomChannel = client.create("RoomChannel", identifier: room_identifier, autoSubscribe: true, bufferActions: true)
-
 ```
 
 ### Channel Callbacks
 
 ```swift
-
 // Receive a message from the server. Typically a Dictionary.
 roomChannel.onReceive = { (JSON : Any?, error : ErrorType?) in
     print("Received", JSON, error)
@@ -83,19 +81,31 @@ roomChannel.onUnsubscribed = {
 roomChannel.onRejected = {
     print("Rejected")
 }
-
 ```
 
 ### Perform an Action on a Channel
 
 ```swift
+// A JSON encodable Dictionary.
+let data: Dictionary<String, Any> = ["message": "Hello, World!"]
+
 // Send an action
-roomChannel["speak"](["message": "Hello, World!"])
+roomChannel["speak"](data)
 
 // Alternate less magical way:
-roomChannel.action("speak", ["message": "Hello, World!"])
+roomChannel.action("speak", with: data)
 
-// Note: The `speak` action must be defined already on the server
+// For a callback to be performed when the action is successfully sent:
+// Important: if there are any issues encoding or transmitting `data`, you will not see those
+// unless you implement this callback.
+roomChannel.action("speak", with: data) { (error) in
+    if let error = error {
+       // oh no!!
+    }
+}
+
+// Note: The `speak` action must be defined in the Channel on the server. The client does not
+// receive any response from the server indicating if an action was successful.
 ```
 
 ### Authorization & Headers
@@ -120,9 +130,8 @@ client.headers = [
 ### Misc
 
 ```swift
-
 client.onPing = {
-    
+   // This is a heartbeat ping ActionCable sends to the client.    
 }
 
 ```
