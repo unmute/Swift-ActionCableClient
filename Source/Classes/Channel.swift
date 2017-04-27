@@ -43,7 +43,7 @@ open class Channel: Hashable, Equatable {
     
     /// Subscribed
     open var isSubscribed : Bool {
-        return client.subscribed(name)
+        return client.subscribed(uid)
     }
     
     /// Unique Identifier
