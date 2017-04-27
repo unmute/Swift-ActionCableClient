@@ -197,7 +197,7 @@ open class Channel: Hashable, Equatable {
 }
 
 public func ==(lhs: Channel, rhs: Channel) -> Bool {
-  return (lhs.hashValue == rhs.hashValue) && (lhs.name == rhs.name)
+  return (lhs.hashValue == rhs.hashValue) && (lhs.uid == rhs.uid)
 }
 
 extension Channel {
