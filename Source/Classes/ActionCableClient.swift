@@ -209,11 +209,19 @@ extension ActionCableClient {
     /// - Returns: a Channel
     
     public func create(_ name: String, identifier: ChannelIdentifier?, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
+		
+        var channelUID = name
+        
+        //if identifier isn't empty, fetch the first value as the channel unique identifier
+        if let dictionary = identifier?.first {
+            channelUID = dictionary.value as! String
+        }
+		
         // Look in existing channels and return that
-        if let channel = channels[name] { return channel }
+        if let channel = channels[channelUID] { return channel }
         
         // Look in unconfirmed channels and return that
-        if let channel = unconfirmedChannels[name] { return channel }
+        if let channel = unconfirmedChannels[channelUID] { return channel }
         
         // Otherwise create a new one
         let channel = Channel(name: name,
@@ -222,7 +230,7 @@ extension ActionCableClient {
             autoSubscribe: autoSubscribe,
             shouldBufferActions: bufferActions)
       
-        self.unconfirmedChannels[name] = channel
+        self.unconfirmedChannels[channel.uid] = channel
       
         if (channel.autoSubscribe) {
           subscribe(channel)
@@ -246,11 +254,11 @@ extension ActionCableClient {
     
     internal func subscribe(_ channel: Channel) {
         // Is it already added and subscribed?
-        if let existingChannel = channels[channel.name] , (existingChannel == channel) {
+        if let existingChannel = channels[channel.uid] , (existingChannel == channel) {
           return
         }
       
-        guard let channel = unconfirmedChannels[channel.name]
+        guard let channel = unconfirmedChannels[channel.uid]
           else { debugPrint("[ActionCableClient] Internal inconsistency error!"); return }
       
         do {
