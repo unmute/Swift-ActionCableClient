@@ -255,6 +255,7 @@ extension ActionCableClient {
     internal func subscribe(_ channel: Channel) {
         // Is it already added and subscribed?
         if let existingChannel = channels[channel.uid] , (existingChannel == channel) {
+            debugPrint("[ActionCableClient] channel exists and subscribed to");
           return
         }
       
@@ -272,7 +273,7 @@ extension ActionCableClient {
         do {
           try self.transmit(on: channel, as: Command.unsubscribe)
             
-            let message = Message(channelName: channel.name,
+            let message = Message(channelName: channel.uid,
                                    actionName: nil,
                                   messageType: MessageType.cancelSubscription,
                                          data: nil,
@@ -336,7 +337,7 @@ extension ActionCableClient {
         
         let channels = self.channels
         for (_, channel) in channels {
-            let message = Message(channelName: channel.name, actionName: nil, messageType: MessageType.hibernateSubscription, data: nil, error: nil)
+            let message = Message(channelName: channel.uid, actionName: nil, messageType: MessageType.hibernateSubscription, data: nil, error: nil)
             onMessage(message)
         }
         
@@ -422,7 +423,7 @@ extension ActionCableClient {
                 }
             case .confirmSubscription:
                 if let channel = unconfirmedChannels.removeValue(forKey: message.channelName!) {
-                    self.channels.updateValue(channel, forKey: channel.name)
+                    self.channels.updateValue(channel, forKey: channel.uid)
                     
                     // Notify Channel
                     channel.onMessage(message)
@@ -445,7 +446,7 @@ extension ActionCableClient {
             case .hibernateSubscription:
               if let channel = channels.removeValue(forKey: message.channelName!) {
                 // Add channel into unconfirmed channels
-                unconfirmedChannels[channel.name] = channel
+                unconfirmedChannels[channel.uid] = channel
                 
                 // We want to treat this like an unsubscribe.
                 fallthrough
