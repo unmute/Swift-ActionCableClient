@@ -46,6 +46,21 @@ open class Channel: Hashable, Equatable {
         return client.subscribed(name)
     }
     
+    /// Unique Identifier
+    open var uid: String {
+        get {
+            //defaults to channel name
+            var channelUID = name
+            
+            //if identifier isn't empty, fetch the first value as the channel unique identifier
+            if let dictionary = identifier?.first {
+                channelUID = dictionary.value as! String
+            }
+            
+            return channelUID
+        }
+    }
+    
     /// A block called when a message has been received on this channel.
     ///
     /// ```swift
