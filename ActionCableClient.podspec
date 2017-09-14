@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Source/Classes/**/*'
   s.frameworks = 'Foundation'
-  s.dependency 'Starscream', '~> 2.0.0'
+  s.dependency 'Starscream', '~> 2.1.1'
 end
