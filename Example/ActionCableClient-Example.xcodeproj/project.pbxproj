@@ -14,7 +14,6 @@
 		86D451781DC31CCC006A516E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D451711DC31CCC006A516E /* ChatView.swift */; };
 		86D451791DC31CCC006A516E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D451721DC31CCC006A516E /* ChatViewController.swift */; };
 		86D4517A1DC31CCC006A516E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86D451731DC31CCC006A516E /* Images.xcassets */; };
-		86D4517B1DC31CCC006A516E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86D451741DC31CCC006A516E /* Info.plist */; };
 		86D451841DC31D73006A516E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D451831DC31D73006A516E /* AppDelegate.swift */; };
 		86D451861DC31D73006A516E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D451851DC31D73006A516E /* ViewController.swift */; };
 		86D451891DC31D73006A516E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86D451871DC31D73006A516E /* Main.storyboard */; };
@@ -233,7 +232,6 @@
 			files = (
 				86D451761DC31CCC006A516E /* LaunchScreen.xib in Resources */,
 				86D4517A1DC31CCC006A516E /* Images.xcassets in Resources */,
-				86D4517B1DC31CCC006A516E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

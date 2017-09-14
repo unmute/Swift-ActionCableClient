@@ -98,7 +98,7 @@ extension ChatViewController {
           }
           
           self.client.onDisconnected = {(error: ConnectionError?) in
-              print("Disconected with error: \(error)")
+            print("Disconected with error: \(String(describing: error))")
           }
           
           self.client.willReconnect = {
@@ -112,8 +112,8 @@ extension ChatViewController {
           }
         
           self.channel?.onReceive = {(data: Any?, error: Error?) in
-            if let _ = error {
-                print(error)
+            if let error = error {
+                print(error.localizedDescription)
                 return
             }
             
