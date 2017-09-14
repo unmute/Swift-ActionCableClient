@@ -51,14 +51,14 @@ public enum RetryStrategy {
 internal class RetryHandler : NSObject {
     var retries : Int = 0
     var strategy: RetryStrategy
-    var callback: ((Void) -> (Void))?
+    var callback: (() -> (Void))?
     var timer: Timer?
     
     internal required init(strategy : RetryStrategy) {
         self.strategy = strategy
     }
     
-    func retry(_ callback: @escaping ((Void) -> (Void)))  {
+    func retry(_ callback: @escaping (() -> (Void)))  {
         self.retries += 1
         
         // Save callback
