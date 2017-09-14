@@ -78,7 +78,7 @@ internal class RetryHandler : NSObject {
         }
     }
     
-    internal func fire(_ timer : Timer) {
+    @objc internal func fire(_ timer : Timer) {
       
         if let callback = self.callback {
             callback()
