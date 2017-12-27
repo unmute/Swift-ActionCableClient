@@ -71,6 +71,14 @@ open class ActionCableClient {
     //MARK: Properties
     open var isConnected : Bool { return socket.isConnected }
     open var url: Foundation.URL { return socket.currentURL }
+    open var headers : [String: String]? {
+        get { return socket.request.allHTTPHeaderFields }
+        set {
+            for (field, value) in headers ?? [:] {
+                socket.request.setValue(value, forHTTPHeaderField: field)
+            }
+        }
+    }
 
   
     /// Initialize an ActionCableClient.
@@ -82,6 +90,13 @@ open class ActionCableClient {
     ///  ```swift
     ///  let client = ActionCableClient(URL: NSURL(string: "ws://localhost:3000/cable")!)
     ///  ```
+    
+    public required init(url: URL) {
+        /// Setup Initialize Socket
+        socket = WebSocket(url: url)
+        setupWebSocket()
+    }
+    
     public required init(url: URL, headers: [String: String]? = nil, origin : String? = nil) {
         /// Setup Initialize Socket
         var request = URLRequest(url: url)
