@@ -98,7 +98,7 @@ extension ChatViewController {
           }
           
           self.client.onDisconnected = {(error: ConnectionError?) in
-              print("Disconected with error: \(error)")
+            print("Disconected with error: \(String(describing: error))")
           }
           
           self.client.willReconnect = {
@@ -112,8 +112,8 @@ extension ChatViewController {
           }
         
           self.channel?.onReceive = {(data: Any?, error: Error?) in
-            if let _ = error {
-                print(error)
+            if let error = error {
+                print(error.localizedDescription)
                 return
             }
             
@@ -191,10 +191,10 @@ struct ChatMessage {
         let nonNameRange = NSRange(location: nameRange.length, length: messageString.characters.count - nameRange.length)
         
         let string: NSMutableAttributedString = NSMutableAttributedString(string: messageString)
-        string.addAttribute(NSFontAttributeName,
+        string.addAttribute(NSAttributedStringKey.font,
             value: UIFont.boldSystemFont(ofSize: 18.0),
             range: nameRange)
-        string.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 18.0), range: nonNameRange)
+        string.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 18.0), range: nonNameRange)
         return string
     }
 }

@@ -84,7 +84,7 @@ class ChatView : UIView {
 
 //MARK: Notifications
 extension ChatView {
-    func keyboardWillHideNotification(_ notification: Notification) {
+    @objc func keyboardWillHideNotification(_ notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo!
         let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         let rawAnimationCurve = ((notification as NSNotification).userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).uint32Value << 16
@@ -96,7 +96,7 @@ extension ChatView {
             }, completion: nil)
     }
     
-    func keyboardWillShowNotification(_ notification: Notification) {
+    @objc func keyboardWillShowNotification(_ notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo!
         let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue

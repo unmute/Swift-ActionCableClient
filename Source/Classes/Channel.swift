@@ -43,7 +43,22 @@ open class Channel: Hashable, Equatable {
     
     /// Subscribed
     open var isSubscribed : Bool {
-        return client.subscribed(name)
+        return client.subscribed(uid)
+    }
+    
+    /// Unique Identifier
+    open var uid: String {
+        get {
+            //defaults to channel name
+            var channelUID = name
+            
+            //if identifier isn't empty, fetch the first value as the channel unique identifier
+            if let dictionary = identifier?.first {
+                channelUID = dictionary.value as! String
+            }
+            
+            return channelUID
+        }
     }
     
     /// A block called when a message has been received on this channel.
@@ -182,7 +197,7 @@ open class Channel: Hashable, Equatable {
 }
 
 public func ==(lhs: Channel, rhs: Channel) -> Bool {
-  return (lhs.hashValue == rhs.hashValue) && (lhs.name == rhs.name)
+  return (lhs.hashValue == rhs.hashValue) && (lhs.uid == rhs.uid)
 }
 
 extension Channel {

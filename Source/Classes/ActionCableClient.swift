@@ -71,6 +71,15 @@ open class ActionCableClient {
     //MARK: Properties
     open var isConnected : Bool { return socket.isConnected }
     open var url: Foundation.URL { return socket.currentURL }
+    open var headers : [String: String]? {
+        get { return socket.request.allHTTPHeaderFields }
+        set {
+            for (field, value) in headers ?? [:] {
+                socket.request.setValue(value, forHTTPHeaderField: field)
+            }
+        }
+    }
+
 
     /// Initialize an ActionCableClient.
     ///
@@ -81,18 +90,25 @@ open class ActionCableClient {
     ///  ```swift
     ///  let client = ActionCableClient(URL: NSURL(string: "ws://localhost:3000/cable")!)
     ///  ```
+
+  public required init(url: URL) {
+        /// Setup Initialize Socket
+        socket = WebSocket(url: url)
+        setupWebSocket()
+}
+    
     public required init(url: URL, headers: [String: String]? = nil, origin : String? = nil) {
         /// Setup Initialize Socket
         var request = URLRequest(url: url)
-
+        
         if let origin = origin {
             request.setValue(origin, forHTTPHeaderField: "Origin")
         }
-
+        
         for (field, value) in headers ?? [:] {
             request.setValue(value, forHTTPHeaderField: field)
         }
-
+        
         socket = WebSocket(request: request)
         setupWebSocket()
     }
@@ -209,11 +225,19 @@ extension ActionCableClient {
     /// - Returns: a Channel
     
     public func create(_ name: String, identifier: ChannelIdentifier?, autoSubscribe: Bool=true, bufferActions: Bool=true) -> Channel {
+		
+        var channelUID = name
+        
+        //if identifier isn't empty, fetch the first value as the channel unique identifier
+        if let dictionary = identifier?.first {
+            channelUID = dictionary.value as! String
+        }
+		
         // Look in existing channels and return that
-        if let channel = channels[name] { return channel }
+        if let channel = channels[channelUID] { return channel }
         
         // Look in unconfirmed channels and return that
-        if let channel = unconfirmedChannels[name] { return channel }
+        if let channel = unconfirmedChannels[channelUID] { return channel }
         
         // Otherwise create a new one
         let channel = Channel(name: name,
@@ -222,7 +246,7 @@ extension ActionCableClient {
             autoSubscribe: autoSubscribe,
             shouldBufferActions: bufferActions)
       
-        self.unconfirmedChannels[name] = channel
+        self.unconfirmedChannels[channel.uid] = channel
       
         if (channel.autoSubscribe) {
           subscribe(channel)
@@ -246,11 +270,12 @@ extension ActionCableClient {
     
     internal func subscribe(_ channel: Channel) {
         // Is it already added and subscribed?
-        if let existingChannel = channels[channel.name] , (existingChannel == channel) {
+        if let existingChannel = channels[channel.uid] , (existingChannel == channel) {
+            debugPrint("[ActionCableClient] channel exists and subscribed to");
           return
         }
       
-        guard let channel = unconfirmedChannels[channel.name]
+        guard let channel = unconfirmedChannels[channel.uid]
           else { debugPrint("[ActionCableClient] Internal inconsistency error!"); return }
       
         do {
@@ -264,7 +289,7 @@ extension ActionCableClient {
         do {
           try self.transmit(on: channel, as: Command.unsubscribe)
             
-            let message = Message(channelName: channel.name,
+            let message = Message(channelName: channel.uid,
                                    actionName: nil,
                                   messageType: MessageType.cancelSubscription,
                                          data: nil,
@@ -298,7 +323,7 @@ extension ActionCableClient {
 extension ActionCableClient {
     
     fileprivate func setupWebSocket() {
-        self.socket.onConnect    = { [weak self] in self!.didConnect() } as (() -> Void)
+        self.socket.onConnect = { [weak self] in self!.didConnect() } as (() -> Void)
         self.socket.onDisconnect = { [weak self] (error: Swift.Error?) in self!.didDisconnect(error) }
         self.socket.onText       = { [weak self] (text: String) in self!.onText(text) }
         self.socket.onData       = { [weak self] (data: Data) in self!.onData(data) }
@@ -328,7 +353,7 @@ extension ActionCableClient {
         
         let channels = self.channels
         for (_, channel) in channels {
-            let message = Message(channelName: channel.name, actionName: nil, messageType: MessageType.hibernateSubscription, data: nil, error: nil)
+            let message = Message(channelName: channel.uid, actionName: nil, messageType: MessageType.hibernateSubscription, data: nil, error: nil)
             onMessage(message)
         }
         
@@ -414,7 +439,7 @@ extension ActionCableClient {
                 }
             case .confirmSubscription:
                 if let channel = unconfirmedChannels.removeValue(forKey: message.channelName!) {
-                    self.channels.updateValue(channel, forKey: channel.name)
+                    self.channels.updateValue(channel, forKey: channel.uid)
                     
                     // Notify Channel
                     channel.onMessage(message)
@@ -437,7 +462,7 @@ extension ActionCableClient {
             case .hibernateSubscription:
               if let channel = channels.removeValue(forKey: message.channelName!) {
                 // Add channel into unconfirmed channels
-                unconfirmedChannels[channel.name] = channel
+                unconfirmedChannels[channel.uid] = channel
                 
                 // We want to treat this like an unsubscribe.
                 fallthrough
