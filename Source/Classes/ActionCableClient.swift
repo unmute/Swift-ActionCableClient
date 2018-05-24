@@ -439,13 +439,17 @@ extension ActionCableClient {
                 }
             case .confirmSubscription:
                 if let channel = unconfirmedChannels.removeValue(forKey: message.channelName!) {
-                    self.channels.updateValue(channel, forKey: channel.uid)
-                    
-                    // Notify Channel
-                    channel.onMessage(message)
-                    
-                    if let callback = onChannelSubscribed {
-                        DispatchQueue.main.async(execute: { callback(channel) })
+                    do {
+                        try self.channels.updateValue(channel, forKey: channel.uid)
+
+                        // Notify Channel
+                        channel.onMessage(message)
+
+                        if let callback = onChannelSubscribed {
+                            DispatchQueue.main.async(execute: { callback(channel) })
+                        }
+                    } catch let error {
+                        print(error)
                     }
                 }
             case .rejectSubscription:
